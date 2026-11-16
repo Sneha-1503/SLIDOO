@@ -31,7 +31,6 @@ namespace Slidoo
         {
             if (Instance != null) { Destroy(gameObject); return; }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
 
         private void Update()
@@ -137,3 +136,4 @@ namespace Slidoo
         }
     }
 }
+

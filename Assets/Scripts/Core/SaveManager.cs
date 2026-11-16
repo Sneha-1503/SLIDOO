@@ -17,7 +17,6 @@ namespace Slidoo
         {
             if (Instance != null) { Destroy(gameObject); return; }
             Instance = this;
-            DontDestroyOnLoad(gameObject);
             LoadData();
         }
 
@@ -55,3 +54,4 @@ namespace Slidoo
         }
     }
 }
+
