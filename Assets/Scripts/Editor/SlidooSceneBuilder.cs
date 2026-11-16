@@ -134,9 +134,9 @@ public static class SlidooSceneBuilder
         var root = PanelStretch("[ Screen_MainMenu ]", parent, Sp("Home/home_bg"), C_DARK);
 
         //  ax    ay    w    h    ox   oy
-        var settBtn  = Btn("Btn_Settings",    root, 1f,   1f,  110, 110,  -70, -70, Sp("Home/btn_settings"), Color.white, "");
-        var playBtn  = Btn("Btn_Play",        root, 0.5f, 0.35f,520,170,    0,   0, Sp("Home/btn_play"),     Color.white, "");
-        var soundBtn = Btn("Btn_Sound",       root, 0f,   0f,  110, 110,   70,  70, Sp("Home/icon_sound"),   Color.white, "");
+        var settBtn  = Btn("Btn_Settings",    root, 1f,   1f,  110, 110,  -70, -70, Sp("Home/btn_settings", "btn_settings_1"), Color.white, "");
+        var playBtn  = Btn("Btn_Play",        root, 0.5f, 0.35f,520,170,    0,   0, Sp("Home/btn_play", "btn_play_1"),     Color.white, "");
+        var soundBtn = Btn("Btn_Sound",       root, 0f,   0f,  110, 110,   70,  70, Sp("Home/icon_sound", "icon_sound_1"),   Color.white, "");
         var debugBtn = Btn("Btn_DEBUG_Unlock",root, 1f,   0f,  160,  50,  -90,  35, null, C_RED, "UNLOCK ALL");
         debugBtn.SetActive(false);   // remove to test; re-hide before shipping
 
@@ -215,36 +215,60 @@ public static class SlidooSceneBuilder
         var root = PanelStretch("[ Screen_LevelSelect ]", parent);
         ImgStretch("Bg", root, Sp("Common/bg"), C_DARK);
 
-        ImgRect("Banner",    root, 0.5f,1f, 800,115,   0,-65, Sp("LevelSelect/level_banner"), Color.white);
-        var titleT = TMPRect("Text_Title",root, 0.5f,1f, 600,70, 0,-65, "EASY", 34, TextAlignmentOptions.Center);
+        // ── Top HUD banner area ──────────────────────────────────────────
+        // Background banner strip
+        ImgRect("Banner", root, 0.5f,1f, 1080,160, 0,0, Sp("LevelSelect/level_banner"), C_DARK);
+
+        // Mode-specific HUD tab images (one shown at a time, swapped by LevelSelectUI)
+        // Sprites: tab_easy, tab_hard, tab_master  (Medium uses tab_easy style fallback)
+        var hudEasy   = ImgRect("Hud_Easy",   root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_easy"),   Color.white);
+        var hudMedium = ImgRect("Hud_Medium", root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_medium"), Color.white);
+        var hudHard   = ImgRect("Hud_Hard",   root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_hard"),   Color.white);
+        var hudMaster = ImgRect("Hud_Master", root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_master"), Color.white);
+        // Hide all except Easy (LevelSelectUI will swap on ShowForMode)
+        hudMedium.SetActive(false); hudHard.SetActive(false); hudMaster.SetActive(false);
+
+        // Level count text below banner  "12 / 30 Completed"
+        var lvlCountT = TMPRect("Text_LevelCount", root, 0.5f,1f, 500,45, 0,-130, "0 / 30 Completed", 22, TextAlignmentOptions.Center);
+        lvlCountT.color = new Color(1f,0.95f,0.7f,1f);
+
+        // Fallback text title (hidden when HUD images are assigned)
+        var titleT = TMPRect("Text_Title", root, 0.5f,1f, 500,55, 0,-65, "EASY", 30, TextAlignmentOptions.Center);
         titleT.color = Color.white;
+        titleT.gameObject.SetActive(false); // hidden — HUD images take over
 
-        var backBtn = Btn("Btn_Back",     root, 0f,1f,110,110, 70,-70, Sp("ModeSelect/btn_back"), Color.white, "");
-        var ctrlBtn = Btn("Btn_Controls", root, 1f,1f,200, 70,-115,-70, null, C_BLUE, "Controls");
+        var backBtn = Btn("Btn_Back",     root, 0f,1f, 110,110,  70,-70, Sp("ModeSelect/btn_back"), Color.white, "");
+        var ctrlBtn = Btn("Btn_Controls", root, 1f,1f, 200, 60, -115,-70, null, C_BLUE, "Controls");
 
-        // ── Scroll view ──────────────────────────────────────────────────
-        var scrollGO = PanelStretchPad("LevelGrid_Scroll", root, 10,10,135,10);
+        // ── Scroll view — starts below banner ───────────────────────────
+        // top padding = 170 to clear HUD + count text
+        var scrollGO = PanelStretchPad("LevelGrid_Scroll", root, 18,18,175,18);
         scrollGO.AddComponent<RectMask2D>();
 
         var grid = PanelStretch("LevelGrid_Content", scrollGO);
         var glg  = grid.AddComponent<GridLayoutGroup>();
-        glg.cellSize       = new Vector2(165,165);
-        glg.spacing        = new Vector2(14,14);
-        glg.startCorner    = GridLayoutGroup.Corner.UpperLeft;
-        glg.startAxis      = GridLayoutGroup.Axis.Horizontal;
-        glg.childAlignment = TextAnchor.UpperCenter;
-        glg.constraint     = GridLayoutGroup.Constraint.FixedColumnCount;
-        glg.constraintCount = 5;
+        // 3 columns, bigger cells so they breathe on 1080px canvas
+        glg.cellSize        = new Vector2(285, 285);
+        glg.spacing         = new Vector2(22, 22);
+        glg.startCorner     = GridLayoutGroup.Corner.UpperLeft;
+        glg.startAxis       = GridLayoutGroup.Axis.Horizontal;
+        glg.childAlignment  = TextAnchor.UpperCenter;
+        glg.constraint      = GridLayoutGroup.Constraint.FixedColumnCount;
+        glg.constraintCount = 3;   // ← 3 per row
+        glg.padding         = new RectOffset(10,10,10,10);
         var csf = grid.AddComponent<ContentSizeFitter>();
         csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
         var sr = scrollGO.AddComponent<ScrollRect>();
-        sr.content   = grid.GetComponent<RectTransform>();
-        sr.viewport  = scrollGO.GetComponent<RectTransform>();
-        sr.horizontal = false; sr.vertical = true;
+        sr.content      = grid.GetComponent<RectTransform>();
+        sr.viewport     = scrollGO.GetComponent<RectTransform>();
+        sr.horizontal   = false; sr.vertical = true;
         sr.movementType = ScrollRect.MovementType.Elastic;
 
         // ── 30 level buttons ─────────────────────────────────────────────
+        // Cell is 285×285. Layout (top→bottom):
+        //   Number text: center-ish at y=+30
+        //   3 stars:     bottom strip at y=+30 from bottom edge  → anchorY=0, oy=+45
         lvlBtns = new LevelButtonUI[30];
         for (int i = 0; i < 30; i++)
         {
@@ -256,16 +280,26 @@ public static class SlidooSceneBuilder
             var bgL = ImgStretch("Bg_Locked",   cell, Sp("LevelSelect/tile_locked"),   Color.white);
             bgL.SetActive(false);
 
-            var numT = TMPRect("Text_Num",cell,0.5f,0.5f,130,60,0,22,(i+1).ToString(),32,TextAlignmentOptions.Center);
+            // Level number — slightly above center
+            var numT = TMPRect("Text_Num", cell, 0.5f,0.5f, 220,80, 0,25, (i+1).ToString(), 48, TextAlignmentOptions.Center);
             numT.color = new Color(0.1f,0.05f,0,1);
+            numT.fontStyle = FontStyles.Bold;
 
+            // 3 stars — anchored to bottom, raised 45px above bottom edge
             var stars = new Image[3];
-            for (int s=0; s<3; s++)
+            float starSize = 44f;
+            float starGap  = 50f;
+            for (int s = 0; s < 3; s++)
             {
-                var sg = ImgRect($"Star_{s}",cell,0.5f,0f,20,20,(s-1)*22f,22,Sp("LevelSelect/icon_star"),C_EMPTY);
+                float xOff = (s - 1) * starGap;   // -50, 0, +50
+                var sg = ImgRect($"Star_{s}", cell, 0.5f, 0f, starSize, starSize, xOff, 45f,
+                                 Sp("LevelSelect/icon_star"), C_EMPTY);
                 stars[s] = sg.GetComponent<Image>();
             }
-            var lockIcon = ImgRect("Icon_Lock",cell,0.5f,0.5f,55,55,0,0,Sp("LevelSelect/icon_lock"),Color.white);
+
+            // Lock icon — centered
+            var lockIcon = ImgRect("Icon_Lock", cell, 0.5f,0.5f, 80,80, 0,0,
+                                   Sp("LevelSelect/icon_lock"), Color.white);
             lockIcon.SetActive(false);
 
             var btn = cell.AddComponent<Button>();
@@ -280,11 +314,21 @@ public static class SlidooSceneBuilder
             lvlBtns[i] = lb;
         }
 
+        // ── Wire LevelSelectUI ───────────────────────────────────────────
         lvlUI = root.AddComponent<LevelSelectUI>();
-        Set(lvlUI,"modeTitleText", titleT);
-        Set(lvlUI,"levelButtons",  lvlBtns);
-        Set(lvlUI,"backButton",    backBtn.GetComponent<Button>());
-        Set(lvlUI,"controlsButton",ctrlBtn.GetComponent<Button>());
+        // Assign 4 HUD images in mode order: Easy=0, Medium=1, Hard=2, Master=3
+        var hudImgs = new Image[4] {
+            hudEasy  .GetComponent<Image>(),
+            hudMedium.GetComponent<Image>(),
+            hudHard  .GetComponent<Image>(),
+            hudMaster.GetComponent<Image>()
+        };
+        Set(lvlUI,"modeHudImages",  hudImgs);
+        Set(lvlUI,"modeTitleText",  titleT);
+        Set(lvlUI,"levelCountText", lvlCountT);
+        Set(lvlUI,"levelButtons",   lvlBtns);
+        Set(lvlUI,"backButton",     backBtn.GetComponent<Button>());
+        Set(lvlUI,"controlsButton", ctrlBtn.GetComponent<Button>());
         return root;
     }
 
@@ -699,7 +743,7 @@ public static class SlidooSceneBuilder
         Debug.Log($"<color=cyan>[SlidooSceneBuilder] Fixed {fixed_} sprite import types.</color>");
     }
 
-    static Sprite Sp(string sub)
+    static Sprite Sp(string sub, string sliceName = null)
     {
         var path = $"Assets/UI/Sprites/{sub}.png";
         // Auto-fix import type if needed
@@ -711,6 +755,11 @@ public static class SlidooSceneBuilder
             imp.SaveAndReimport();
         }
         var sp = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        if (sliceName != null && imp != null && imp.spriteImportMode == SpriteImportMode.Multiple)
+        {
+            sp = System.Array.Find(AssetDatabase.LoadAllAssetsAtPath(path),
+                asset => asset is Sprite && asset.name == sliceName) as Sprite;
+        }
         if (sp == null) Debug.LogWarning($"[Builder] Missing sprite: {path}");
         return sp;
     }
