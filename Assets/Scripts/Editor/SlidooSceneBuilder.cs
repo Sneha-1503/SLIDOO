@@ -603,9 +603,19 @@ public static class SlidooSceneBuilder
     static GameObject Btn(string name,GameObject parent,float ax,float ay,float w,float h,float ox,float oy,Sprite sp,Color bg,string label)
     {
         var g=Child(name,parent); RTRect(g.AddComponent<RectTransform>(),ax,ay,w,h,ox,oy);
-        var i=g.AddComponent<Image>(); i.sprite=sp; i.color=bg; if(sp!=null) i.type=Image.Type.Simple;
+        var i=g.AddComponent<Image>();
+        i.sprite=sp;
+        // If sprite loaded, use Color.white so sprite shows at full brightness.
+        // If sprite is null, use bg color so button is still visible as a colored rect.
+        i.color = (sp!=null) ? Color.white : bg;
+        if(sp!=null) i.type=Image.Type.Simple;
         var b=g.AddComponent<Button>(); StyleBtn(b);
-        if(!string.IsNullOrEmpty(label)) { var lt=TMPStretch("Label",g,label,22,TextAlignmentOptions.Center); lt.color=new Color(0.1f,0.05f,0,1); }
+        // Label — white text on sprite buttons, dark text on colored buttons
+        if(!string.IsNullOrEmpty(label))
+        {
+            var lt=TMPStretch("Label",g,label,22,TextAlignmentOptions.Center);
+            lt.color = (sp!=null) ? Color.white : new Color(0.1f,0.05f,0,1f);
+        }
         return g;
     }
 
@@ -654,10 +664,16 @@ public static class SlidooSceneBuilder
 
     static void StyleBtn(Button b)
     {
-        var c=b.colors;
-        c.normalColor=Color.white; c.highlightedColor=new Color(0.9f,0.9f,0.9f,1f);
-        c.pressedColor=new Color(0.75f,0.75f,0.75f,1f);
-        b.colors=c; b.transition=Selectable.Transition.ColorTint;
+        var c = ColorBlock.defaultColorBlock;
+        c.normalColor      = Color.white;
+        c.highlightedColor = new Color(0.85f,0.85f,0.85f,1f);
+        c.pressedColor     = new Color(0.70f,0.70f,0.70f,1f);
+        c.selectedColor    = Color.white;
+        c.disabledColor    = new Color(0.5f,0.5f,0.5f,0.5f);
+        c.colorMultiplier  = 1f;
+        c.fadeDuration     = 0.1f;
+        b.colors    = c;
+        b.transition= Selectable.Transition.ColorTint;
     }
 
     // ── Force all UI sprites to Sprite (2D and UI) import type ───────────
