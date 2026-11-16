@@ -33,8 +33,8 @@ namespace Slidoo
 
         private void Start()
         {
-            backButton    .onClick.AddListener(OnBack);
-            controlsButton.onClick.AddListener(OnControls);
+            if (backButton     != null) backButton    .onClick.AddListener(OnBack);
+            if (controlsButton != null) controlsButton.onClick.AddListener(OnControls);
         }
 
         public void ShowForMode(GameMode mode)
@@ -48,6 +48,9 @@ namespace Slidoo
 
         private void RefreshButtons()
         {
+            // Guard — SaveManager may not be ready on first OnEnable
+            if (SaveManager.Instance == null || SaveManager.Instance.Data == null) return;
+
             var modeSave = SaveManager.Instance.Data.modes[(int)_currentMode];
 
             // ── HUD banner swap ───────────────────────────────────────────
