@@ -6,34 +6,39 @@ namespace Slidoo
     public enum UIScreen { Splash, MainMenu, ModeSelect, LevelSelect, Gameplay }
 
     /// <summary>
-    /// Manages which screen/popup is visible. All screens are children of one
-    /// Canvas – we simply activate/deactivate the right panel.
+    /// Single-scene screen manager. Activates/deactivates panels.
+    /// All references assigned by SlidooSceneBuilder or manually in Inspector.
     /// </summary>
     public class UIManager : MonoBehaviour
     {
         public static UIManager Instance { get; private set; }
 
-        [Header("Screens")]
+        [Header("── Screens ──────────────────────────")]
         [SerializeField] private GameObject splashScreen;
         [SerializeField] private GameObject mainMenuScreen;
         [SerializeField] private GameObject modeSelectScreen;
         [SerializeField] private GameObject levelSelectScreen;
         [SerializeField] private GameObject gameplayScreen;
 
-        [Header("Popups")]
+        [Header("── Popups ──────────────────────────")]
         [SerializeField] private GameObject winPopup;
         [SerializeField] private GameObject pausePopup;
         [SerializeField] private GameObject settingsPopup;
         [SerializeField] private GameObject controlSettingsPopup;
         [SerializeField] private GameObject quitPopup;
 
+        [Header("── Splash ──────────────────────────")]
+        [SerializeField] private float splashDuration = 2f;
+
         public UIScreen CurrentScreen { get; private set; }
 
-        // ─────────────────────────────────────────────────────────────────────────
+        // ─────────────────────────────────────────────────────────────────────
         private void Awake()
         {
             if (Instance != null) { Destroy(gameObject); return; }
             Instance = this;
+
+            ValidateReferences();
         }
 
         private void Start()
@@ -44,45 +49,79 @@ namespace Slidoo
 
         private IEnumerator SplashTimer()
         {
-            yield return new WaitForSeconds(2f);
-            ShowScreen(UIScreen.MainMenu);
+            yield return new WaitForSeconds(splashDuration);
+
+            if (mainMenuScreen != null)
+                ShowScreen(UIScreen.MainMenu);
+            else
+                Debug.LogError("[UIManager] mainMenuScreen is NULL! " +
+                               "Run 'Slidoo → Build Scene' from the menu bar first.");
         }
 
-        // ── Screen switching ─────────────────────────────────────────────────────
+        // ── Screen switching ─────────────────────────────────────────────────
 
         public void ShowScreen(UIScreen screen)
         {
-            splashScreen    .SetActive(screen == UIScreen.Splash);
-            mainMenuScreen  .SetActive(screen == UIScreen.MainMenu);
-            modeSelectScreen.SetActive(screen == UIScreen.ModeSelect);
-            levelSelectScreen.SetActive(screen == UIScreen.LevelSelect);
-            gameplayScreen  .SetActive(screen == UIScreen.Gameplay);
+            SetActive(splashScreen,       screen == UIScreen.Splash);
+            SetActive(mainMenuScreen,     screen == UIScreen.MainMenu);
+            SetActive(modeSelectScreen,   screen == UIScreen.ModeSelect);
+            SetActive(levelSelectScreen,  screen == UIScreen.LevelSelect);
+            SetActive(gameplayScreen,     screen == UIScreen.Gameplay);
             CurrentScreen = screen;
             HideAllPopups();
         }
 
-        // ── Popup helpers ────────────────────────────────────────────────────────
+        // ── Popup helpers ────────────────────────────────────────────────────
 
-        public void ShowWinPopup()            => winPopup            .SetActive(true);
-        public void ShowPausePopup()          => pausePopup          .SetActive(true);
-        public void ShowSettingsPopup()       => settingsPopup       .SetActive(true);
-        public void ShowControlSettings()     => controlSettingsPopup.SetActive(true);
+        public void ShowWinPopup()        => SetActive(winPopup,            true);
+        public void ShowPausePopup()      => SetActive(pausePopup,          true);
+        public void ShowSettingsPopup()   => SetActive(settingsPopup,       true);
+        public void ShowControlSettings() => SetActive(controlSettingsPopup,true);
+        public void ShowQuitPopup()       => SetActive(quitPopup,           true);
 
-        public void HideWinPopup()            => winPopup            .SetActive(false);
-        public void HidePausePopup()          => pausePopup          .SetActive(false);
-        public void HideSettingsPopup()       => settingsPopup       .SetActive(false);
-        public void HideControlSettings()     => controlSettingsPopup.SetActive(false);
-
-        public void ShowQuitPopup()           => quitPopup           .SetActive(true);
-        public void HideQuitPopup()           => quitPopup           .SetActive(false);
+        public void HideWinPopup()        => SetActive(winPopup,            false);
+        public void HidePausePopup()      => SetActive(pausePopup,          false);
+        public void HideSettingsPopup()   => SetActive(settingsPopup,       false);
+        public void HideControlSettings() => SetActive(controlSettingsPopup,false);
+        public void HideQuitPopup()       => SetActive(quitPopup,           false);
 
         public void HideAllPopups()
         {
-            winPopup            .SetActive(false);
-            pausePopup          .SetActive(false);
-            settingsPopup       .SetActive(false);
-            controlSettingsPopup.SetActive(false);
-            quitPopup           .SetActive(false);
+            SetActive(winPopup,            false);
+            SetActive(pausePopup,          false);
+            SetActive(settingsPopup,       false);
+            SetActive(controlSettingsPopup,false);
+            SetActive(quitPopup,           false);
+        }
+
+        // ── Null-safe helper ─────────────────────────────────────────────────
+
+        private static void SetActive(GameObject go, bool active)
+        {
+            if (go != null) go.SetActive(active);
+        }
+
+        // ── Reference validation (runs in Awake, logs missing refs) ──────────
+
+        private void ValidateReferences()
+        {
+            Check(splashScreen,        "splashScreen");
+            Check(mainMenuScreen,      "mainMenuScreen");
+            Check(modeSelectScreen,    "modeSelectScreen");
+            Check(levelSelectScreen,   "levelSelectScreen");
+            Check(gameplayScreen,      "gameplayScreen");
+            Check(winPopup,            "winPopup");
+            Check(pausePopup,          "pausePopup");
+            Check(settingsPopup,       "settingsPopup");
+            Check(controlSettingsPopup,"controlSettingsPopup");
+            Check(quitPopup,           "quitPopup");
+        }
+
+        private static void Check(GameObject go, string name)
+        {
+            if (go == null)
+                Debug.LogWarning($"[UIManager] '{name}' is not assigned! " +
+                                 "Run Slidoo → Build Scene to auto-wire all references.");
         }
     }
 }
