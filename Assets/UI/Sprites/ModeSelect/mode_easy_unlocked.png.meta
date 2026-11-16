@@ -1,0 +1,2665 @@
+fileFormatVersion: 2
+guid: 1400e34203c15d9429acf47cb292f553
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4917991349082126124
+    second: mode_easy_unlocked_0
+  - first:
+      213: 688573895598627813
+    second: mode_easy_unlocked_1
+  - first:
+      213: 4405704347205847806
+    second: mode_easy_unlocked_2
+  - first:
+      213: 6778533441229798067
+    second: mode_easy_unlocked_3
+  - first:
+      213: -3549850223270029298
+    second: mode_easy_unlocked_4
+  - first:
+      213: -2768312799659396215
+    second: mode_easy_unlocked_5
+  - first:
+      213: 8562227109017411082
+    second: mode_easy_unlocked_6
+  - first:
+      213: 7363114813269171083
+    second: mode_easy_unlocked_7
+  - first:
+      213: -1054380599906405968
+    second: mode_easy_unlocked_8
+  - first:
+      213: 7929852810458097092
+    second: mode_easy_unlocked_9
+  - first:
+      213: 427587140423124512
+    second: mode_easy_unlocked_10
+  - first:
+      213: -2387495152648231789
+    second: mode_easy_unlocked_11
+  - first:
+      213: 1628601149195910598
+    second: mode_easy_unlocked_12
+  - first:
+      213: -7904924389753487370
+    second: mode_easy_unlocked_13
+  - first:
+      213: -205554134177933443
+    second: mode_easy_unlocked_14
+  - first:
+      213: 3232520218697949951
+    second: mode_easy_unlocked_15
+  - first:
+      213: -4640173681536754410
+    second: mode_easy_unlocked_16
+  - first:
+      213: -2990620081565611291
+    second: mode_easy_unlocked_17
+  - first:
+      213: 6258728106785148985
+    second: mode_easy_unlocked_18
+  - first:
+      213: -219299831623693374
+    second: mode_easy_unlocked_19
+  - first:
+      213: 6338748076890731503
+    second: mode_easy_unlocked_20
+  - first:
+      213: -7904053500933531199
+    second: mode_easy_unlocked_21
+  - first:
+      213: -3797120423858452184
+    second: mode_easy_unlocked_22
+  - first:
+      213: 7342590036982912237
+    second: mode_easy_unlocked_23
+  - first:
+      213: -5090327601220942145
+    second: mode_easy_unlocked_24
+  - first:
+      213: -7640481033893582536
+    second: mode_easy_unlocked_25
+  - first:
+      213: -7851720344213788911
+    second: mode_easy_unlocked_26
+  - first:
+      213: -214856866563781644
+    second: mode_easy_unlocked_27
+  - first:
+      213: 3235414753788902250
+    second: mode_easy_unlocked_28
+  - first:
+      213: -4599636767901812762
+    second: mode_easy_unlocked_29
+  - first:
+      213: 7030507355971416834
+    second: mode_easy_unlocked_30
+  - first:
+      213: -2018032560119540147
+    second: mode_easy_unlocked_31
+  - first:
+      213: -4691971515520752219
+    second: mode_easy_unlocked_32
+  - first:
+      213: -4851339444099638369
+    second: mode_easy_unlocked_33
+  - first:
+      213: 6781106800962779961
+    second: mode_easy_unlocked_34
+  - first:
+      213: 4082726648077935650
+    second: mode_easy_unlocked_35
+  - first:
+      213: -6198552535099895275
+    second: mode_easy_unlocked_36
+  - first:
+      213: 6019662632378367665
+    second: mode_easy_unlocked_37
+  - first:
+      213: -3767707724590413806
+    second: mode_easy_unlocked_38
+  - first:
+      213: 7994054069528867443
+    second: mode_easy_unlocked_39
+  - first:
+      213: -4066388833772081333
+    second: mode_easy_unlocked_40
+  - first:
+      213: -2094309924913872200
+    second: mode_easy_unlocked_41
+  - first:
+      213: 8118282475245268133
+    second: mode_easy_unlocked_42
+  - first:
+      213: -2730371118371146587
+    second: mode_easy_unlocked_43
+  - first:
+      213: -1165985436024796820
+    second: mode_easy_unlocked_44
+  - first:
+      213: 8996490999421590263
+    second: mode_easy_unlocked_45
+  - first:
+      213: -3789797833115788645
+    second: mode_easy_unlocked_46
+  - first:
+      213: 2473099013903798211
+    second: mode_easy_unlocked_47
+  - first:
+      213: -7890929962425309698
+    second: mode_easy_unlocked_48
+  - first:
+      213: 6310945283235669436
+    second: mode_easy_unlocked_49
+  - first:
+      213: 6855117954346705921
+    second: mode_easy_unlocked_50
+  - first:
+      213: 4072307175563971266
+    second: mode_easy_unlocked_51
+  - first:
+      213: 2368508444372695302
+    second: mode_easy_unlocked_52
+  - first:
+      213: -5819714850637066307
+    second: mode_easy_unlocked_53
+  - first:
+      213: 7149754464791403005
+    second: mode_easy_unlocked_54
+  - first:
+      213: 4756172166004594450
+    second: mode_easy_unlocked_55
+  - first:
+      213: 3884325128915823901
+    second: mode_easy_unlocked_56
+  - first:
+      213: 5865336735552158073
+    second: mode_easy_unlocked_57
+  - first:
+      213: -368747636275938782
+    second: mode_easy_unlocked_58
+  - first:
+      213: -213014981592752263
+    second: mode_easy_unlocked_59
+  - first:
+      213: 7362340656915122317
+    second: mode_easy_unlocked_60
+  - first:
+      213: 4169323402407586642
+    second: mode_easy_unlocked_61
+  - first:
+      213: 1995962773419568531
+    second: mode_easy_unlocked_62
+  - first:
+      213: -8560679776735330359
+    second: mode_easy_unlocked_63
+  - first:
+      213: 7716513638837602358
+    second: mode_easy_unlocked_64
+  - first:
+      213: 7042582518282565532
+    second: mode_easy_unlocked_65
+  - first:
+      213: 648654524834547946
+    second: mode_easy_unlocked_66
+  - first:
+      213: 4249045566516616685
+    second: mode_easy_unlocked_67
+  - first:
+      213: 3938865638067078004
+    second: mode_easy_unlocked_68
+  - first:
+      213: -3950449250050599806
+    second: mode_easy_unlocked_69
+  - first:
+      213: -2296711955765777756
+    second: mode_easy_unlocked_70
+  - first:
+      213: -6519448314194119130
+    second: mode_easy_unlocked_71
+  - first:
+      213: -1775415139896948161
+    second: mode_easy_unlocked_72
+  - first:
+      213: -2365704339735879
+    second: mode_easy_unlocked_73
+  - first:
+      213: -8088611489084958342
+    second: mode_easy_unlocked_74
+  - first:
+      213: 5483962738660247706
+    second: mode_easy_unlocked_75
+  - first:
+      213: -866954368741205689
+    second: mode_easy_unlocked_76
+  - first:
+      213: 8550067685303451954
+    second: mode_easy_unlocked_77
+  - first:
+      213: -3595955802161776381
+    second: mode_easy_unlocked_78
+  - first:
+      213: 5024100575899562831
+    second: mode_easy_unlocked_79
+  - first:
+      213: 3749635311399245549
+    second: mode_easy_unlocked_80
+  - first:
+      213: 3646177055236666921
+    second: mode_easy_unlocked_81
+  - first:
+      213: -6500965682341971061
+    second: mode_easy_unlocked_82
+  - first:
+      213: 6091096894857517524
+    second: mode_easy_unlocked_83
+  - first:
+      213: 8347184672257071220
+    second: mode_easy_unlocked_84
+  - first:
+      213: -374186531634089349
+    second: mode_easy_unlocked_85
+  - first:
+      213: -179883749886953787
+    second: mode_easy_unlocked_86
+  - first:
+      213: -261690454293145173
+    second: mode_easy_unlocked_87
+  - first:
+      213: 3262875074920676673
+    second: mode_easy_unlocked_88
+  - first:
+      213: 2678593580859276189
+    second: mode_easy_unlocked_89
+  - first:
+      213: -3195721850474905399
+    second: mode_easy_unlocked_90
+  - first:
+      213: 7748280134336276495
+    second: mode_easy_unlocked_91
+  - first:
+      213: -48689071018574101
+    second: mode_easy_unlocked_92
+  - first:
+      213: -7615951330900259232
+    second: mode_easy_unlocked_93
+  - first:
+      213: 8403123362008727734
+    second: mode_easy_unlocked_94
+  - first:
+      213: -2741633298222346766
+    second: mode_easy_unlocked_95
+  - first:
+      213: -2763357330843253142
+    second: mode_easy_unlocked_96
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mode_easy_unlocked_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1755
+        height: 868
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c27fb7a4317304440800000000000000
+      internalID: 4917991349082126124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 845
+        width: 5
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eb53c05f4e4e8900800000000000000
+      internalID: 688573895598627813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_2
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 856
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efa4998e2c4342d30800000000000000
+      internalID: 4405704347205847806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 830
+        width: 13
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3babb962040321e50800000000000000
+      internalID: 6778533441229798067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_4
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 836
+        width: 41
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e081624a7066cbec0800000000000000
+      internalID: -3549850223270029298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_5
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 839
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98372250d2af499d0800000000000000
+      internalID: -2768312799659396215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_6
+      rect:
+        serializedVersion: 2
+        x: 1705
+        y: 850
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0ed337e03423d670800000000000000
+      internalID: 8562227109017411082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_7
+      rect:
+        serializedVersion: 2
+        x: 431
+        y: 799
+        width: 24
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b535549e90f2660800000000000000
+      internalID: 7363114813269171083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_8
+      rect:
+        serializedVersion: 2
+        x: 477
+        y: 826
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b1f3844e661e51f0800000000000000
+      internalID: -1054380599906405968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_9
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 817
+        width: 20
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5ec70fd1f7c0e60800000000000000
+      internalID: 7929852810458097092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_10
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 821
+        width: 24
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 026027f1d381fe500800000000000000
+      internalID: 427587140423124512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_11
+      rect:
+        serializedVersion: 2
+        x: 1056
+        y: 833
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3946f63eec9edded0800000000000000
+      internalID: -2387495152648231789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_12
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 837
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cd7d92dd14f99610800000000000000
+      internalID: 1628601149195910598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_13
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 838
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fffb6c46211c4290800000000000000
+      internalID: -7904924389753487370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 799
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d771632aa99b52df0800000000000000
+      internalID: -205554134177933443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_15
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 793
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff262c423083cdc20800000000000000
+      internalID: 3232520218697949951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_16
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 793
+        width: 26
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d92ef0f9aca9fb0800000000000000
+      internalID: -4640173681536754410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_17
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 805
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eac12c71ee2f76d0800000000000000
+      internalID: -2990620081565611291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_18
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 797
+        width: 49
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9309eae8d087bd650800000000000000
+      internalID: 6258728106785148985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_19
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 811
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cb44cc07f3e4fcf0800000000000000
+      internalID: -219299831623693374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_20
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 817
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe333c3bac1c7f750800000000000000
+      internalID: 6338748076890731503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_21
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 792
+        width: 58
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c99c27e7392f4290800000000000000
+      internalID: -7904053500933531199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_22
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 795
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 829498ea71bed4bc0800000000000000
+      internalID: -3797120423858452184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_23
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 797
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de450b56cbe16e560800000000000000
+      internalID: 7342590036982912237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_24
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 807
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb60cd234068b59b0800000000000000
+      internalID: -5090327601220942145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_25
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 792
+        width: 19
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 839e9ad0bfe87f590800000000000000
+      internalID: -7640481033893582536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_26
+      rect:
+        serializedVersion: 2
+        x: 1330
+        y: 803
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 117ed6772f5190390800000000000000
+      internalID: -7851720344213788911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_27
+      rect:
+        serializedVersion: 2
+        x: 1331
+        y: 809
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fb89e671dca40df0800000000000000
+      internalID: -214856866563781644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_28
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 799
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6b35ac939086ec20800000000000000
+      internalID: 3235414753788902250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_29
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 795
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7f261cabeca20c0800000000000000
+      internalID: -4599636767901812762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_30
+      rect:
+        serializedVersion: 2
+        x: 1006
+        y: 791
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2037277e031619160800000000000000
+      internalID: 7030507355971416834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_31
+      rect:
+        serializedVersion: 2
+        x: 1054
+        y: 791
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4617ec14128ef3e0800000000000000
+      internalID: -2018032560119540147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_32
+      rect:
+        serializedVersion: 2
+        x: 1122
+        y: 797
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a5622904c4c2eeb0800000000000000
+      internalID: -4691971515520752219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_33
+      rect:
+        serializedVersion: 2
+        x: 1258
+        y: 789
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9b9995aa749cacb0800000000000000
+      internalID: -4851339444099638369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_34
+      rect:
+        serializedVersion: 2
+        x: 1332
+        y: 793
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b3f5725b45b1e50800000000000000
+      internalID: 6781106800962779961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 739
+        width: 5
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 224e4b55142c8a830800000000000000
+      internalID: 4082726648077935650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_36
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 773
+        width: 7
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51216c78f415af9a0800000000000000
+      internalID: -6198552535099895275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 773
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1befa9645432a8350800000000000000
+      internalID: 6019662632378367665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_38
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 775
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2180b4269c966bbc0800000000000000
+      internalID: -3767707724590413806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_39
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 765
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 372b88962d590fe60800000000000000
+      internalID: 7994054069528867443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_40
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 775
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f666c76e84197c0800000000000000
+      internalID: -4066388833772081333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_41
+      rect:
+        serializedVersion: 2
+        x: 1757
+        y: 733
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b20feb28348fe2e0800000000000000
+      internalID: -2094309924913872200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_42
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 225
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ace54316eee9a070800000000000000
+      internalID: 8118282475245268133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_43
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 239
+        width: 22
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a470881fe5cb1ad0800000000000000
+      internalID: -2730371118371146587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_44
+      rect:
+        serializedVersion: 2
+        x: 1732
+        y: 222
+        width: 42
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6986707c6691dfe0800000000000000
+      internalID: -1165985436024796820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_45
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 190
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fad58506e4f9dc70800000000000000
+      internalID: 8996490999421590263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_46
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 192
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9a969233fee76bc0800000000000000
+      internalID: -3789797833115788645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_47
+      rect:
+        serializedVersion: 2
+        x: 1740
+        y: 181
+        width: 34
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cfca1a3376325220800000000000000
+      internalID: 2473099013903798211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_48
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 94
+        width: 81
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef52722d109cd7290800000000000000
+      internalID: -7890929962425309698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_49
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 130
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb5603c5c4bf49750800000000000000
+      internalID: 6310945283235669436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_50
+      rect:
+        serializedVersion: 2
+        x: 1603
+        y: 128
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 104ec32a575422f50800000000000000
+      internalID: 6855117954346705921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_51
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 114
+        width: 18
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cac3c7dccdb38830800000000000000
+      internalID: 4072307175563971266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_52
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 92
+        width: 21
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 609f85a91e1aed020800000000000000
+      internalID: 2368508444372695302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_53
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 94
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbf46b17d283c3fa0800000000000000
+      internalID: -5819714850637066307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_54
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 96
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df997210ec7093360800000000000000
+      internalID: 7149754464791403005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_55
+      rect:
+        serializedVersion: 2
+        x: 1693
+        y: 96
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 217dd4db261510240800000000000000
+      internalID: 4756172166004594450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_56
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 99
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1da62def15e7e530800000000000000
+      internalID: 3884325128915823901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_57
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 82
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979b2a26facd56150800000000000000
+      internalID: 5865336735552158073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_58
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 80
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22af1008af1f1eaf0800000000000000
+      internalID: -368747636275938782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_59
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 67
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fd35ab0083b0df0800000000000000
+      internalID: -213014981592752263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_60
+      rect:
+        serializedVersion: 2
+        x: 1328
+        y: 87
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8887d2f1d94c2660800000000000000
+      internalID: 7362340656915122317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_61
+      rect:
+        serializedVersion: 2
+        x: 1466
+        y: 86
+        width: 23
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25b2a326b896cd930800000000000000
+      internalID: 4169323402407586642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_62
+      rect:
+        serializedVersion: 2
+        x: 1699
+        y: 78
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39da39e319513bb10800000000000000
+      internalID: 1995962773419568531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_63
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 61
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cff1d7791b523980800000000000000
+      internalID: -8560679776735330359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_64
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 69
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6384f5b4540961b60800000000000000
+      internalID: 7716513638837602358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_65
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 70
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c97bb97bc774cb160800000000000000
+      internalID: 7042582518282565532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_66
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 66
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae886b68adb700900800000000000000
+      internalID: 648654524834547946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_67
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 67
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deddbaa2e64a7fa30800000000000000
+      internalID: 4249045566516616685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_68
+      rect:
+        serializedVersion: 2
+        x: 467
+        y: 69
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4730bf6cd69a9a630800000000000000
+      internalID: 3938865638067078004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_69
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 63
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2849683665f2d29c0800000000000000
+      internalID: -3950449250050599806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_70
+      rect:
+        serializedVersion: 2
+        x: 1264
+        y: 69
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa203d05a07020e0800000000000000
+      internalID: -2296711955765777756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_71
+      rect:
+        serializedVersion: 2
+        x: 1530
+        y: 66
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 626b0fcbc444685a0800000000000000
+      internalID: -6519448314194119130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_72
+      rect:
+        serializedVersion: 2
+        x: 1550
+        y: 69
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a879936557c57e0800000000000000
+      internalID: -1775415139896948161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_73
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 69
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9babf29876897fff0800000000000000
+      internalID: -2365704339735879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_74
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 47
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7992fab4ba7fbf80800000000000000
+      internalID: -8088611489084958342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_75
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 50
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9882573e03fa1c40800000000000000
+      internalID: 5483962738660247706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_76
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 57
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74915be4895f7f3f0800000000000000
+      internalID: -866954368741205689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_77
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 35
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2310f047241f7a670800000000000000
+      internalID: 8550067685303451954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_78
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 47
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30974280049981ec0800000000000000
+      internalID: -3595955802161776381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_79
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 21
+        width: 22
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f43345edad039b540800000000000000
+      internalID: 5024100575899562831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_80
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 39
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de696350371690430800000000000000
+      internalID: 3749635311399245549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_81
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 37
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 926bf85a6b2d99230800000000000000
+      internalID: 3646177055236666921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_82
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 31
+        width: 22
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8b700fc72ee7c5a0800000000000000
+      internalID: -6500965682341971061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_83
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 33
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d997769a5ce78450800000000000000
+      internalID: 6091096894857517524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_84
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 45
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 478d770fb3827d370800000000000000
+      internalID: 8347184672257071220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_85
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 29
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b72f63ef45f9ecaf0800000000000000
+      internalID: -374186531634089349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_86
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 40
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c67f1bbeace08df0800000000000000
+      internalID: -179883749886953787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_87
+      rect:
+        serializedVersion: 2
+        x: 1514
+        y: 31
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba91fb61be94e5cf0800000000000000
+      internalID: -261690454293145173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_88
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 31
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14d7f1bd79f084d20800000000000000
+      internalID: 3262875074920676673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_89
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 17
+        width: 19
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9b32c48ba64c2520800000000000000
+      internalID: 2678593580859276189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_90
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 11
+        width: 21
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c04d7d98e386a3d0800000000000000
+      internalID: -3195721850474905399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_91
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 21
+        width: 13
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f086453eabb678b60800000000000000
+      internalID: 7748280134336276495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_92
+      rect:
+        serializedVersion: 2
+        x: 1586
+        y: 29
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee7e714c85035ff0800000000000000
+      internalID: -48689071018574101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_93
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 15
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ec6079d94be4690800000000000000
+      internalID: -7615951330900259232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_94
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 7
+        width: 12
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b001541d24ed9470800000000000000
+      internalID: 8403123362008727734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_95
+      rect:
+        serializedVersion: 2
+        x: 1474
+        y: 17
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fd03138a03c3f9d0800000000000000
+      internalID: -2741633298222346766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_easy_unlocked_96
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 34
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a66cd93062596a9d0800000000000000
+      internalID: -2763357330843253142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mode_easy_unlocked_0: 4917991349082126124
+      mode_easy_unlocked_1: 688573895598627813
+      mode_easy_unlocked_10: 427587140423124512
+      mode_easy_unlocked_11: -2387495152648231789
+      mode_easy_unlocked_12: 1628601149195910598
+      mode_easy_unlocked_13: -7904924389753487370
+      mode_easy_unlocked_14: -205554134177933443
+      mode_easy_unlocked_15: 3232520218697949951
+      mode_easy_unlocked_16: -4640173681536754410
+      mode_easy_unlocked_17: -2990620081565611291
+      mode_easy_unlocked_18: 6258728106785148985
+      mode_easy_unlocked_19: -219299831623693374
+      mode_easy_unlocked_2: 4405704347205847806
+      mode_easy_unlocked_20: 6338748076890731503
+      mode_easy_unlocked_21: -7904053500933531199
+      mode_easy_unlocked_22: -3797120423858452184
+      mode_easy_unlocked_23: 7342590036982912237
+      mode_easy_unlocked_24: -5090327601220942145
+      mode_easy_unlocked_25: -7640481033893582536
+      mode_easy_unlocked_26: -7851720344213788911
+      mode_easy_unlocked_27: -214856866563781644
+      mode_easy_unlocked_28: 3235414753788902250
+      mode_easy_unlocked_29: -4599636767901812762
+      mode_easy_unlocked_3: 6778533441229798067
+      mode_easy_unlocked_30: 7030507355971416834
+      mode_easy_unlocked_31: -2018032560119540147
+      mode_easy_unlocked_32: -4691971515520752219
+      mode_easy_unlocked_33: -4851339444099638369
+      mode_easy_unlocked_34: 6781106800962779961
+      mode_easy_unlocked_35: 4082726648077935650
+      mode_easy_unlocked_36: -6198552535099895275
+      mode_easy_unlocked_37: 6019662632378367665
+      mode_easy_unlocked_38: -3767707724590413806
+      mode_easy_unlocked_39: 7994054069528867443
+      mode_easy_unlocked_4: -3549850223270029298
+      mode_easy_unlocked_40: -4066388833772081333
+      mode_easy_unlocked_41: -2094309924913872200
+      mode_easy_unlocked_42: 8118282475245268133
+      mode_easy_unlocked_43: -2730371118371146587
+      mode_easy_unlocked_44: -1165985436024796820
+      mode_easy_unlocked_45: 8996490999421590263
+      mode_easy_unlocked_46: -3789797833115788645
+      mode_easy_unlocked_47: 2473099013903798211
+      mode_easy_unlocked_48: -7890929962425309698
+      mode_easy_unlocked_49: 6310945283235669436
+      mode_easy_unlocked_5: -2768312799659396215
+      mode_easy_unlocked_50: 6855117954346705921
+      mode_easy_unlocked_51: 4072307175563971266
+      mode_easy_unlocked_52: 2368508444372695302
+      mode_easy_unlocked_53: -5819714850637066307
+      mode_easy_unlocked_54: 7149754464791403005
+      mode_easy_unlocked_55: 4756172166004594450
+      mode_easy_unlocked_56: 3884325128915823901
+      mode_easy_unlocked_57: 5865336735552158073
+      mode_easy_unlocked_58: -368747636275938782
+      mode_easy_unlocked_59: -213014981592752263
+      mode_easy_unlocked_6: 8562227109017411082
+      mode_easy_unlocked_60: 7362340656915122317
+      mode_easy_unlocked_61: 4169323402407586642
+      mode_easy_unlocked_62: 1995962773419568531
+      mode_easy_unlocked_63: -8560679776735330359
+      mode_easy_unlocked_64: 7716513638837602358
+      mode_easy_unlocked_65: 7042582518282565532
+      mode_easy_unlocked_66: 648654524834547946
+      mode_easy_unlocked_67: 4249045566516616685
+      mode_easy_unlocked_68: 3938865638067078004
+      mode_easy_unlocked_69: -3950449250050599806
+      mode_easy_unlocked_7: 7363114813269171083
+      mode_easy_unlocked_70: -2296711955765777756
+      mode_easy_unlocked_71: -6519448314194119130
+      mode_easy_unlocked_72: -1775415139896948161
+      mode_easy_unlocked_73: -2365704339735879
+      mode_easy_unlocked_74: -8088611489084958342
+      mode_easy_unlocked_75: 5483962738660247706
+      mode_easy_unlocked_76: -866954368741205689
+      mode_easy_unlocked_77: 8550067685303451954
+      mode_easy_unlocked_78: -3595955802161776381
+      mode_easy_unlocked_79: 5024100575899562831
+      mode_easy_unlocked_8: -1054380599906405968
+      mode_easy_unlocked_80: 3749635311399245549
+      mode_easy_unlocked_81: 3646177055236666921
+      mode_easy_unlocked_82: -6500965682341971061
+      mode_easy_unlocked_83: 6091096894857517524
+      mode_easy_unlocked_84: 8347184672257071220
+      mode_easy_unlocked_85: -374186531634089349
+      mode_easy_unlocked_86: -179883749886953787
+      mode_easy_unlocked_87: -261690454293145173
+      mode_easy_unlocked_88: 3262875074920676673
+      mode_easy_unlocked_89: 2678593580859276189
+      mode_easy_unlocked_9: 7929852810458097092
+      mode_easy_unlocked_90: -3195721850474905399
+      mode_easy_unlocked_91: 7748280134336276495
+      mode_easy_unlocked_92: -48689071018574101
+      mode_easy_unlocked_93: -7615951330900259232
+      mode_easy_unlocked_94: 8403123362008727734
+      mode_easy_unlocked_95: -2741633298222346766
+      mode_easy_unlocked_96: -2763357330843253142
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

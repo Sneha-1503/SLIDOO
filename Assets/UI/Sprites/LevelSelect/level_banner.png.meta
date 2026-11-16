@@ -1,0 +1,1885 @@
+fileFormatVersion: 2
+guid: 54fa6f9b02202604cb763669d3f1310f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9007253584244212631
+    second: level_banner_0
+  - first:
+      213: 1175907443128518351
+    second: level_banner_1
+  - first:
+      213: 3157517890816103480
+    second: level_banner_2
+  - first:
+      213: -5125008204253265149
+    second: level_banner_3
+  - first:
+      213: -4546570451542319808
+    second: level_banner_4
+  - first:
+      213: -6741080803499806462
+    second: level_banner_5
+  - first:
+      213: -3189912189007875979
+    second: level_banner_6
+  - first:
+      213: -4857250382855498559
+    second: level_banner_7
+  - first:
+      213: -6380882672910473150
+    second: level_banner_8
+  - first:
+      213: 3897886189292458382
+    second: level_banner_9
+  - first:
+      213: 5824162038061933516
+    second: level_banner_10
+  - first:
+      213: -2149938169316549756
+    second: level_banner_11
+  - first:
+      213: -7664455977248028311
+    second: level_banner_12
+  - first:
+      213: 5777908633488789468
+    second: level_banner_13
+  - first:
+      213: 7445776417744126816
+    second: level_banner_14
+  - first:
+      213: 3294347944700565786
+    second: level_banner_15
+  - first:
+      213: 3461358118926329739
+    second: level_banner_16
+  - first:
+      213: -505168250891306038
+    second: level_banner_17
+  - first:
+      213: -4497316244803001996
+    second: level_banner_18
+  - first:
+      213: 1785589977972454080
+    second: level_banner_19
+  - first:
+      213: 6940673977610177340
+    second: level_banner_20
+  - first:
+      213: -403270054256785284
+    second: level_banner_21
+  - first:
+      213: 97091318492408224
+    second: level_banner_22
+  - first:
+      213: -2923394740924887470
+    second: level_banner_23
+  - first:
+      213: -1342977975541533098
+    second: level_banner_24
+  - first:
+      213: -2133398838864989159
+    second: level_banner_25
+  - first:
+      213: -9118146883504514888
+    second: level_banner_26
+  - first:
+      213: -3762796728105753122
+    second: level_banner_27
+  - first:
+      213: -804702838331556651
+    second: level_banner_28
+  - first:
+      213: 6265093179290167618
+    second: level_banner_29
+  - first:
+      213: 4194498945530666198
+    second: level_banner_30
+  - first:
+      213: -2821571611307554061
+    second: level_banner_31
+  - first:
+      213: 6341816862359833949
+    second: level_banner_32
+  - first:
+      213: -5010067441132700935
+    second: level_banner_33
+  - first:
+      213: -7369460096585247628
+    second: level_banner_34
+  - first:
+      213: 1835084729408507139
+    second: level_banner_35
+  - first:
+      213: 8400784415259807654
+    second: level_banner_36
+  - first:
+      213: 472662484595642829
+    second: level_banner_37
+  - first:
+      213: -8417453304127595618
+    second: level_banner_38
+  - first:
+      213: 7731332592437706742
+    second: level_banner_39
+  - first:
+      213: 8539771014041757965
+    second: level_banner_40
+  - first:
+      213: 2512841242175067152
+    second: level_banner_41
+  - first:
+      213: 5366012637424575736
+    second: level_banner_42
+  - first:
+      213: 3492791146587511470
+    second: level_banner_43
+  - first:
+      213: 1686634930303311515
+    second: level_banner_44
+  - first:
+      213: 1813761008461185602
+    second: level_banner_45
+  - first:
+      213: -7956164160016903869
+    second: level_banner_46
+  - first:
+      213: 2549379532647921202
+    second: level_banner_47
+  - first:
+      213: -7843740044197164189
+    second: level_banner_48
+  - first:
+      213: -4373791126319124945
+    second: level_banner_49
+  - first:
+      213: 5171016518309452652
+    second: level_banner_50
+  - first:
+      213: 1440491998927189414
+    second: level_banner_51
+  - first:
+      213: 1722137407810111370
+    second: level_banner_52
+  - first:
+      213: -808578352023784461
+    second: level_banner_53
+  - first:
+      213: -4949201055705511388
+    second: level_banner_54
+  - first:
+      213: -4576496545378369157
+    second: level_banner_55
+  - first:
+      213: 7338248591953766287
+    second: level_banner_56
+  - first:
+      213: 3642759994408735159
+    second: level_banner_57
+  - first:
+      213: -8753752207833874460
+    second: level_banner_58
+  - first:
+      213: -181875788597486279
+    second: level_banner_59
+  - first:
+      213: 2602698808134555213
+    second: level_banner_60
+  - first:
+      213: 4910378777329000631
+    second: level_banner_61
+  - first:
+      213: -7960861616929286850
+    second: level_banner_62
+  - first:
+      213: -3660709170013629628
+    second: level_banner_63
+  - first:
+      213: -9054275382161829607
+    second: level_banner_64
+  - first:
+      213: 5463393849479168429
+    second: level_banner_65
+  - first:
+      213: -7712119604828798605
+    second: level_banner_66
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: level_banner_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 289
+        width: 534
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96c724d669ecff280800000000000000
+      internalID: -9007253584244212631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_1
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 705
+        width: 24
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc6c96cd699a15010800000000000000
+      internalID: 1175907443128518351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_2
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 694
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 834d80edac1c1db20800000000000000
+      internalID: 3157517890816103480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_3
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 681
+        width: 53
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3038582113050e8b0800000000000000
+      internalID: -5125008204253265149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_4
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 685
+        width: 62
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04d5889534657e0c0800000000000000
+      internalID: -4546570451542319808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_5
+      rect:
+        serializedVersion: 2
+        x: 712
+        y: 685
+        width: 31
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 201703999bed272a0800000000000000
+      internalID: -6741080803499806462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_6
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 661
+        width: 88
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5703f75d3c72bb3d0800000000000000
+      internalID: -3189912189007875979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_7
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 691
+        width: 27
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c494c8f284979cb0800000000000000
+      internalID: -4857250382855498559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_8
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 695
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 248e9bf240d8277a0800000000000000
+      internalID: -6380882672910473150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_9
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 682
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e819da756d2181630800000000000000
+      internalID: 3897886189292458382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_10
+      rect:
+        serializedVersion: 2
+        x: 1064
+        y: 670
+        width: 75
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc32ff0148493d050800000000000000
+      internalID: 5824162038061933516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_11
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 689
+        width: 19
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b55d830a2e922e0800000000000000
+      internalID: -2149938169316549756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_12
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 675
+        width: 78
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 969038f85e162a590800000000000000
+      internalID: -7664455977248028311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_13
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 646
+        width: 63
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdf03cb1a414f2050800000000000000
+      internalID: 5777908633488789468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_14
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 679
+        width: 30
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0638e98d336b45760800000000000000
+      internalID: 7445776417744126816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_15
+      rect:
+        serializedVersion: 2
+        x: 1591
+        y: 650
+        width: 99
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a195a626000e7bd20800000000000000
+      internalID: 3294347944700565786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_16
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 699
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b87a40fbed6390030800000000000000
+      internalID: 3461358118926329739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_17
+      rect:
+        serializedVersion: 2
+        x: 1681
+        y: 534
+        width: 491
+        height: 190
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb71ddf6284df8f0800000000000000
+      internalID: -505168250891306038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_18
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 694
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4716ce104b25691c0800000000000000
+      internalID: -4497316244803001996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_19
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 682
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c2bb8fdf90b7c810800000000000000
+      internalID: 1785589977972454080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_20
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 691
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3b8049953a325060800000000000000
+      internalID: 6940673977610177340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_21
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 685
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c78c873b50c476af0800000000000000
+      internalID: -403270054256785284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_22
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 683
+        width: 33
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9a38d2a00f85100800000000000000
+      internalID: 97091318492408224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_23
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 663
+        width: 40
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e4de0d8f30e67d0800000000000000
+      internalID: -2923394740924887470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_24
+      rect:
+        serializedVersion: 2
+        x: 992
+        y: 681
+        width: 37
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6567caa85a8cc5de0800000000000000
+      internalID: -1342977975541533098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_25
+      rect:
+        serializedVersion: 2
+        x: 1247
+        y: 675
+        width: 39
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 914b83d2f05a462e0800000000000000
+      internalID: -2133398838864989159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_26
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 653
+        width: 64
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b8d0ee28b5d57180800000000000000
+      internalID: -9118146883504514888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_27
+      rect:
+        serializedVersion: 2
+        x: 2145
+        y: 669
+        width: 23
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed5214bdf4cd7cbc0800000000000000
+      internalID: -3762796728105753122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_28
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 683
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dcbf73380f15d4f0800000000000000
+      internalID: -804702838331556651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_29
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 1964
+        height: 686
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 249205c7d0512f650800000000000000
+      internalID: 6265093179290167618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_30
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 680
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dc1b1b419ad53a30800000000000000
+      internalID: 4194498945530666198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_31
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 681
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3facfaf9193c7d8d0800000000000000
+      internalID: -2821571611307554061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_32
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 661
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5d4a8ff5d8a20850800000000000000
+      internalID: 6341816862359833949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_33
+      rect:
+        serializedVersion: 2
+        x: 891
+        y: 675
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9faf88ee43aa87ab0800000000000000
+      internalID: -5010067441132700935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_34
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 673
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 474de94561b6ab990800000000000000
+      internalID: -7369460096585247628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_35
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 676
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30d4325b6d7877910800000000000000
+      internalID: 1835084729408507139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_36
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 675
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6afc23a9ae4959470800000000000000
+      internalID: 8400784415259807654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_37
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 667
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc11af4860c3f8600800000000000000
+      internalID: 472662484595642829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_38
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 675
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b590641d23f2b80800000000000000
+      internalID: -8417453304127595618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_39
+      rect:
+        serializedVersion: 2
+        x: 1391
+        y: 667
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff36acc7063b4b60800000000000000
+      internalID: 7731332592437706742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_40
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 677
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09e22bdd7c538670800000000000000
+      internalID: 8539771014041757965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_41
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 669
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 014dbc0dbc76fd220800000000000000
+      internalID: 2512841242175067152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_42
+      rect:
+        serializedVersion: 2
+        x: 2161
+        y: 618
+        width: 11
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f4e2f93018e77a40800000000000000
+      internalID: 5366012637424575736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_43
+      rect:
+        serializedVersion: 2
+        x: 2112
+        y: 506
+        width: 47
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eaa5afeca03e87030800000000000000
+      internalID: 3492791146587511470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_44
+      rect:
+        serializedVersion: 2
+        x: 2156
+        y: 554
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9e9e7e6881286710800000000000000
+      internalID: 1686634930303311515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_45
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 536
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24288c80706cb2910800000000000000
+      internalID: 1813761008461185602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_46
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 526
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3419f7b99d6069190800000000000000
+      internalID: -7956164160016903869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_47
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 393
+        width: 41
+        height: 130
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23671218d27316320800000000000000
+      internalID: 2549379532647921202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_48
+      rect:
+        serializedVersion: 2
+        x: 2135
+        y: 516
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b0f1bdcff652390800000000000000
+      internalID: -7843740044197164189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_49
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 138
+        width: 878
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2e2ef9d42c2d43c0800000000000000
+      internalID: -4373791126319124945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_50
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 123
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b138d402423c740800000000000000
+      internalID: 5171016518309452652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_51
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 106
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a5f8d947d7adf310800000000000000
+      internalID: 1440491998927189414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_52
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 98
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a870fee19d246e710800000000000000
+      internalID: 1722137407810111370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_53
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 97
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f33d8ad54a57c4f0800000000000000
+      internalID: -808578352023784461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_54
+      rect:
+        serializedVersion: 2
+        x: 1903
+        y: 95
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42a4fa0acd7e05bb0800000000000000
+      internalID: -4949201055705511388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_55
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 77
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b718be8a3a40d70c0800000000000000
+      internalID: -4576496545378369157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_56
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 93
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f872ae4f632b6d560800000000000000
+      internalID: 7338248591953766287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_57
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 46
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b19cbc2aeead8230800000000000000
+      internalID: 3642759994408735159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_58
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 79
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ef35401fbc648680800000000000000
+      internalID: -8753752207833874460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_59
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 77
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93d17631fe8d97df0800000000000000
+      internalID: -181875788597486279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_60
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 69
+        width: 20
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d46513cb6c4ae1420800000000000000
+      internalID: 2602698808134555213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_61
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 53
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b0ef4f4b7b252440800000000000000
+      internalID: 4910378777329000631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_62
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 48
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3553e0b986558190800000000000000
+      internalID: -7960861616929286850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_63
+      rect:
+        serializedVersion: 2
+        x: 1912
+        y: 65
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4439257b76c823dc0800000000000000
+      internalID: -3660709170013629628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_64
+      rect:
+        serializedVersion: 2
+        x: 1496
+        y: 47
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9111ea3f280c85280800000000000000
+      internalID: -9054275382161829607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_65
+      rect:
+        serializedVersion: 2
+        x: 1528
+        y: 33
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da1824282cfd1db40800000000000000
+      internalID: 5463393849479168429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: level_banner_66
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 15
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3718ad8741c09f490800000000000000
+      internalID: -7712119604828798605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      level_banner_0: -9007253584244212631
+      level_banner_1: 1175907443128518351
+      level_banner_10: 5824162038061933516
+      level_banner_11: -2149938169316549756
+      level_banner_12: -7664455977248028311
+      level_banner_13: 5777908633488789468
+      level_banner_14: 7445776417744126816
+      level_banner_15: 3294347944700565786
+      level_banner_16: 3461358118926329739
+      level_banner_17: -505168250891306038
+      level_banner_18: -4497316244803001996
+      level_banner_19: 1785589977972454080
+      level_banner_2: 3157517890816103480
+      level_banner_20: 6940673977610177340
+      level_banner_21: -403270054256785284
+      level_banner_22: 97091318492408224
+      level_banner_23: -2923394740924887470
+      level_banner_24: -1342977975541533098
+      level_banner_25: -2133398838864989159
+      level_banner_26: -9118146883504514888
+      level_banner_27: -3762796728105753122
+      level_banner_28: -804702838331556651
+      level_banner_29: 6265093179290167618
+      level_banner_3: -5125008204253265149
+      level_banner_30: 4194498945530666198
+      level_banner_31: -2821571611307554061
+      level_banner_32: 6341816862359833949
+      level_banner_33: -5010067441132700935
+      level_banner_34: -7369460096585247628
+      level_banner_35: 1835084729408507139
+      level_banner_36: 8400784415259807654
+      level_banner_37: 472662484595642829
+      level_banner_38: -8417453304127595618
+      level_banner_39: 7731332592437706742
+      level_banner_4: -4546570451542319808
+      level_banner_40: 8539771014041757965
+      level_banner_41: 2512841242175067152
+      level_banner_42: 5366012637424575736
+      level_banner_43: 3492791146587511470
+      level_banner_44: 1686634930303311515
+      level_banner_45: 1813761008461185602
+      level_banner_46: -7956164160016903869
+      level_banner_47: 2549379532647921202
+      level_banner_48: -7843740044197164189
+      level_banner_49: -4373791126319124945
+      level_banner_5: -6741080803499806462
+      level_banner_50: 5171016518309452652
+      level_banner_51: 1440491998927189414
+      level_banner_52: 1722137407810111370
+      level_banner_53: -808578352023784461
+      level_banner_54: -4949201055705511388
+      level_banner_55: -4576496545378369157
+      level_banner_56: 7338248591953766287
+      level_banner_57: 3642759994408735159
+      level_banner_58: -8753752207833874460
+      level_banner_59: -181875788597486279
+      level_banner_6: -3189912189007875979
+      level_banner_60: 2602698808134555213
+      level_banner_61: 4910378777329000631
+      level_banner_62: -7960861616929286850
+      level_banner_63: -3660709170013629628
+      level_banner_64: -9054275382161829607
+      level_banner_65: 5463393849479168429
+      level_banner_66: -7712119604828798605
+      level_banner_7: -4857250382855498559
+      level_banner_8: -6380882672910473150
+      level_banner_9: 3897886189292458382
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

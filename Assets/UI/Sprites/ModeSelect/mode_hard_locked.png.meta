@@ -1,0 +1,845 @@
+fileFormatVersion: 2
+guid: 495bf5089e402ae4cbc2e6e5f554c273
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5446443960360446385
+    second: mode_hard_locked_0
+  - first:
+      213: -7187018481611978640
+    second: mode_hard_locked_1
+  - first:
+      213: 4828064244571919837
+    second: mode_hard_locked_2
+  - first:
+      213: 2088697731848632113
+    second: mode_hard_locked_3
+  - first:
+      213: -5732554079526025676
+    second: mode_hard_locked_4
+  - first:
+      213: 2023372348114239477
+    second: mode_hard_locked_5
+  - first:
+      213: -3118733968325862685
+    second: mode_hard_locked_6
+  - first:
+      213: 3946633073492388066
+    second: mode_hard_locked_7
+  - first:
+      213: 1170153230997115828
+    second: mode_hard_locked_8
+  - first:
+      213: -6157192635729075830
+    second: mode_hard_locked_9
+  - first:
+      213: -9042281891845779649
+    second: mode_hard_locked_10
+  - first:
+      213: -8977040724178471851
+    second: mode_hard_locked_11
+  - first:
+      213: -7411076617793498260
+    second: mode_hard_locked_12
+  - first:
+      213: 1864533651696104409
+    second: mode_hard_locked_13
+  - first:
+      213: 3656962816577772325
+    second: mode_hard_locked_14
+  - first:
+      213: -5381131378682924229
+    second: mode_hard_locked_15
+  - first:
+      213: -6115226824670354585
+    second: mode_hard_locked_16
+  - first:
+      213: -9147588801225961036
+    second: mode_hard_locked_17
+  - first:
+      213: -4740019574149971048
+    second: mode_hard_locked_18
+  - first:
+      213: 2092145053049291131
+    second: mode_hard_locked_19
+  - first:
+      213: -4267932897518952616
+    second: mode_hard_locked_20
+  - first:
+      213: 3780775888727875472
+    second: mode_hard_locked_21
+  - first:
+      213: 8823568977006973825
+    second: mode_hard_locked_22
+  - first:
+      213: -4474716299266684600
+    second: mode_hard_locked_23
+  - first:
+      213: -1943651720293022191
+    second: mode_hard_locked_24
+  - first:
+      213: -3772376252615473670
+    second: mode_hard_locked_25
+  - first:
+      213: -3650575513702925340
+    second: mode_hard_locked_26
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mode_hard_locked_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 85
+        width: 1522
+        height: 871
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b92b5aece7a59b40800000000000000
+      internalID: 5446443960360446385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_1
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 911
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 078c959f4c4924c90800000000000000
+      internalID: -7187018481611978640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 775
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd5597aa9dab00340800000000000000
+      internalID: 4828064244571919837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_3
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 161
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 137700e458b8cfc10800000000000000
+      internalID: 2088697731848632113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_4
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 170
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4368222ef60e170b0800000000000000
+      internalID: -5732554079526025676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_5
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 167
+        width: 19
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff72b92e66741c10800000000000000
+      internalID: 2023372348114239477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_6
+      rect:
+        serializedVersion: 2
+        x: 1070
+        y: 173
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ea1ef4caf708b4d0800000000000000
+      internalID: -3118733968325862685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_7
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 159
+        width: 23
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e86254ced145c630800000000000000
+      internalID: 3946633073492388066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_8
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 175
+        width: 11
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b3db52f9283d3010800000000000000
+      internalID: 1170153230997115828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_9
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 183
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a81a7b58be14d8aa0800000000000000
+      internalID: -6157192635729075830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_10
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 167
+        width: 11
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3fc595078c538280800000000000000
+      internalID: -9042281891845779649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_11
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 163
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 554702516052b6380800000000000000
+      internalID: -8977040724178471851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_12
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 159
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c631739e411962990800000000000000
+      internalID: -7411076617793498260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_13
+      rect:
+        serializedVersion: 2
+        x: 479
+        y: 162
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3bb1d3a7720e910800000000000000
+      internalID: 1864533651696104409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_14
+      rect:
+        serializedVersion: 2
+        x: 566
+        y: 157
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52b1ee66e4420c230800000000000000
+      internalID: 3656962816577772325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_15
+      rect:
+        serializedVersion: 2
+        x: 590
+        y: 158
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3375e385816255b0800000000000000
+      internalID: -5381131378682924229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_16
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 165
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76365925a99522ba0800000000000000
+      internalID: -6115226824670354585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_17
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 159
+        width: 11
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b1d597837c3d0180800000000000000
+      internalID: -9147588801225961036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_18
+      rect:
+        serializedVersion: 2
+        x: 1096
+        y: 171
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 893846e9f41183eb0800000000000000
+      internalID: -4740019574149971048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_19
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 153
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71089157dac80d10800000000000000
+      internalID: 2092145053049291131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_20
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 119
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85fdd2664a145c4c0800000000000000
+      internalID: -4267932897518952616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_21
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 111
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09f9cfea3a3087430800000000000000
+      internalID: 3780775888727875472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_22
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 127
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18358ad3c3d937a70800000000000000
+      internalID: 8823568977006973825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_23
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 99
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8490f8fdb3d96e1c0800000000000000
+      internalID: -4474716299266684600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_24
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 112
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1168bdcee03c605e0800000000000000
+      internalID: -1943651720293022191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_25
+      rect:
+        serializedVersion: 2
+        x: 936
+        y: 114
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af54cbff8c3d5abc0800000000000000
+      internalID: -3772376252615473670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mode_hard_locked_26
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 103
+        width: 27
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4eb7fff69ec865dc0800000000000000
+      internalID: -3650575513702925340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mode_hard_locked_0: 5446443960360446385
+      mode_hard_locked_1: -7187018481611978640
+      mode_hard_locked_10: -9042281891845779649
+      mode_hard_locked_11: -8977040724178471851
+      mode_hard_locked_12: -7411076617793498260
+      mode_hard_locked_13: 1864533651696104409
+      mode_hard_locked_14: 3656962816577772325
+      mode_hard_locked_15: -5381131378682924229
+      mode_hard_locked_16: -6115226824670354585
+      mode_hard_locked_17: -9147588801225961036
+      mode_hard_locked_18: -4740019574149971048
+      mode_hard_locked_19: 2092145053049291131
+      mode_hard_locked_2: 4828064244571919837
+      mode_hard_locked_20: -4267932897518952616
+      mode_hard_locked_21: 3780775888727875472
+      mode_hard_locked_22: 8823568977006973825
+      mode_hard_locked_23: -4474716299266684600
+      mode_hard_locked_24: -1943651720293022191
+      mode_hard_locked_25: -3772376252615473670
+      mode_hard_locked_26: -3650575513702925340
+      mode_hard_locked_3: 2088697731848632113
+      mode_hard_locked_4: -5732554079526025676
+      mode_hard_locked_5: 2023372348114239477
+      mode_hard_locked_6: -3118733968325862685
+      mode_hard_locked_7: 3946633073492388066
+      mode_hard_locked_8: 1170153230997115828
+      mode_hard_locked_9: -6157192635729075830
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

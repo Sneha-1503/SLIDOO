@@ -25,6 +25,7 @@ namespace Slidoo
         [SerializeField] private GameObject pausePopup;
         [SerializeField] private GameObject settingsPopup;
         [SerializeField] private GameObject controlSettingsPopup;
+        [SerializeField] private GameObject quitPopup;
 
         public UIScreen CurrentScreen { get; private set; }
 
@@ -72,12 +73,16 @@ namespace Slidoo
         public void HideSettingsPopup()       => settingsPopup       .SetActive(false);
         public void HideControlSettings()     => controlSettingsPopup.SetActive(false);
 
+        public void ShowQuitPopup()           => quitPopup           .SetActive(true);
+        public void HideQuitPopup()           => quitPopup           .SetActive(false);
+
         public void HideAllPopups()
         {
             winPopup            .SetActive(false);
             pausePopup          .SetActive(false);
             settingsPopup       .SetActive(false);
             controlSettingsPopup.SetActive(false);
+            quitPopup           .SetActive(false);
         }
     }
 }
