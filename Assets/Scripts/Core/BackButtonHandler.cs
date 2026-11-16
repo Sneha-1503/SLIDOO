@@ -1,10 +1,11 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Slidoo
 {
     /// <summary>
-    /// Handles Android hardware back button across all screens.
-    /// Attach to the [Managers] GameObject.
+    /// Handles Android hardware back button / Escape key across all screens.
+    /// Uses New Input System. Attach to the [MANAGERS] GameObject.
     /// </summary>
     public class BackButtonHandler : MonoBehaviour
     {
@@ -12,15 +13,28 @@ namespace Slidoo
 
         private void Update()
         {
-            if (!Input.GetKeyDown(KeyCode.Escape)) return;
+            // Works with both New Input System and legacy
+            bool backPressed = Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame;
 
+            // Also check old-style for device compatibility
+#if ENABLE_LEGACY_INPUT_MANAGER
+            backPressed = backPressed || Input.GetKeyDown(KeyCode.Escape);
+#endif
+
+            if (!backPressed) return;
+
+            HandleBackPress();
+        }
+
+        private void HandleBackPress()
+        {
             var ui = UIManager.Instance;
+            if (ui == null) return;
 
-            // If any popup is open – close it first
-            // (UIManager.HideAllPopups handles this via ShowScreen, so we check manually)
             switch (ui.CurrentScreen)
             {
                 case UIScreen.Splash:
+                    // Do nothing during splash
                     break;
 
                 case UIScreen.MainMenu:
@@ -28,15 +42,19 @@ namespace Slidoo
                     break;
 
                 case UIScreen.ModeSelect:
+                    AudioManager.Instance?.PlayButtonClick();
                     ui.ShowScreen(UIScreen.MainMenu);
                     break;
 
                 case UIScreen.LevelSelect:
+                    AudioManager.Instance?.PlayButtonClick();
                     ui.ShowScreen(UIScreen.ModeSelect);
                     break;
 
                 case UIScreen.Gameplay:
-                    if (GameManager.Instance.IsPlaying && !GameManager.Instance.IsPaused)
+                    if (GameManager.Instance != null &&
+                        GameManager.Instance.IsPlaying &&
+                        !GameManager.Instance.IsPaused)
                     {
                         GameManager.Instance.PauseGame();
                         ui.ShowPausePopup();
