@@ -1,14 +1,9 @@
 // ============================================================
-//  SlidooSceneBuilder.cs   –   EDITOR ONLY
-//  Menu: Slidoo ▶ Build Scene
+//  SlidooSceneBuilder.cs  –  EDITOR ONLY
+//  Menu: Slidoo ▶ Build Scene  (Ctrl+Shift+B)
 //
-//  Generates the COMPLETE Main scene hierarchy from scratch:
-//    • All screens, popups, board, HUD
-//    • Sprites loaded from Assets/UI/Sprites/
-//    • Manager GameObjects with all components
-//    • Inspector references auto-wired
-//
-//  Run once on a fresh scene. Safe to re-run (clears first).
+//  Generates the COMPLETE scene hierarchy from scratch.
+//  All RectTransforms use clean explicit parameters – no NaN.
 // ============================================================
 #if UNITY_EDITOR
 using System.IO;
@@ -20,583 +15,493 @@ using Slidoo;
 
 public static class SlidooSceneBuilder
 {
-    // ── Sprite paths (relative to Assets/) ──────────────────────────────────
-    private const string SP = "Assets/UI/Sprites/";
+    // ── Colours ──────────────────────────────────────────────────────────
+    static readonly Color C_DARK   = new Color(0.10f, 0.07f, 0.05f, 0.95f);
+    static readonly Color C_POPUP  = new Color(0.15f, 0.10f, 0.06f, 0.97f);
+    static readonly Color C_GREEN  = new Color(0.22f, 0.70f, 0.30f, 1f);
+    static readonly Color C_RED    = new Color(0.80f, 0.22f, 0.22f, 1f);
+    static readonly Color C_YELLOW = new Color(0.95f, 0.78f, 0.10f, 1f);
+    static readonly Color C_BLUE   = new Color(0.18f, 0.46f, 0.80f, 1f);
+    static readonly Color C_GREY   = new Color(0.45f, 0.45f, 0.45f, 1f);
+    static readonly Color C_GOLD   = new Color(1.00f, 0.84f, 0.00f, 1f);
+    static readonly Color C_EMPTY  = new Color(0.30f, 0.30f, 0.30f, 1f);
+    static readonly Color C_BORDER = new Color(0.90f, 0.75f, 0.40f, 1f);
+    static readonly Color C_CLEAR  = new Color(0, 0, 0, 0);
+    static readonly Color C_DIMMER = new Color(0, 0, 0, 0.60f);
+    static readonly Color C_HUD    = new Color(0, 0, 0, 0.35f);
 
-    // ── Colors used for placeholders ────────────────────────────────────────
-    private static readonly Color C_PANEL_BG        = new Color(0.13f, 0.08f, 0.05f, 0.95f);
-    private static readonly Color C_POPUP_BG        = new Color(0.18f, 0.12f, 0.06f, 0.97f);
-    private static readonly Color C_BTN_GREEN       = new Color(0.22f, 0.70f, 0.30f, 1f);
-    private static readonly Color C_BTN_RED         = new Color(0.80f, 0.22f, 0.22f, 1f);
-    private static readonly Color C_BTN_YELLOW      = new Color(0.95f, 0.78f, 0.10f, 1f);
-    private static readonly Color C_BTN_BLUE        = new Color(0.18f, 0.46f, 0.80f, 1f);
-    private static readonly Color C_BTN_GREY        = new Color(0.45f, 0.45f, 0.45f, 1f);
-    private static readonly Color C_STAR_GOLD       = new Color(1f, 0.84f, 0f, 1f);
-    private static readonly Color C_STAR_EMPTY      = new Color(0.35f, 0.35f, 0.35f, 1f);
-    private static readonly Color C_TILE_BORDER     = new Color(0.9f, 0.75f, 0.4f, 1f);
-    private static readonly Color C_TRANSPARENT     = new Color(0, 0, 0, 0);
-
-    // ────────────────────────────────────────────────────────────────────────
+    // ════════════════════════════════════════════════════════════════════
     [MenuItem("Slidoo/Build Scene %#b")]
     public static void BuildScene()
     {
-        // Clear existing roots except Camera / EventSystem
-        var existing = GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None);
-        foreach (var go in existing)
+        // ── Clear previous objects ───────────────────────────────────────
+        foreach (var go in GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
             if (go.transform.parent == null && go.name != "Main Camera")
                 Object.DestroyImmediate(go);
 
-        // ── Managers ────────────────────────────────────────────────────────
-        var managers = CreateEmpty("[ MANAGERS ]");
-        var saveGO   = CreateChild("SaveManager",      managers).AddComponent<SaveManager>();
-        var audioGO  = BuildAudioManager(managers);
-        var shuffleGO= CreateChild("ShuffleBag",       managers).AddComponent<ShuffleBag>();
-        var gmGO     = CreateChild("GameManager",      managers).AddComponent<GameManager>();
-        var uiMgrGO  = CreateChild("UIManager",        managers);
-        var lvlCtrlGO= CreateChild("LevelController",  managers);
-        var boardMgrGO= CreateChild("BoardManager",    managers);
-        var backBtnGO = CreateChild("BackButtonHandler",managers);
+        // ── MANAGERS (each on its own child GO) ──────────────────────────
+        var managers = Create("[ MANAGERS ]");
+        Child("SaveManager",       managers).AddComponent<SaveManager>();
+        BuildAudioManager(managers);
+        Child("ShuffleBag",        managers).AddComponent<ShuffleBag>();
+        Child("GameManager",       managers).AddComponent<GameManager>();
 
-        // ── Canvas ──────────────────────────────────────────────────────────
-        var canvasGO = BuildCanvas();
-        var canvas   = canvasGO.GetComponent<Canvas>();
+        var uiMgr   = Child("UIManager",        managers).AddComponent<UIManager>();
+        var lvlCtrl = Child("LevelController",   managers).AddComponent<LevelController>();
+        var boardMgr= Child("BoardManager",      managers).AddComponent<BoardManager>();
+        var backBtn = Child("BackButtonHandler",  managers).AddComponent<BackButtonHandler>();
 
-        // ── Background (always visible under everything) ─────────────────────
-        var bgImg = CreateImage("[ Background ]", canvasGO, Stretch(),
-                       LoadSprite("Common/bg"), C_PANEL_BG, false);
-        bgImg.GetComponent<Image>().preserveAspect = false;
+        // ── CANVAS ──────────────────────────────────────────────────────
+        var canvas = BuildCanvas();
 
-        // ── SCREENS ─────────────────────────────────────────────────────────
-        var screenParent  = CreatePanel("[ SCREENS ]",  canvasGO, Stretch());
-        var splashGO      = BuildSplashScreen(screenParent);
-        var mainMenuGO    = BuildMainMenuScreen(screenParent);
-        var modeSelectGO  = BuildModeSelectScreen(screenParent);
-        var lvlSelectGO   = BuildLevelSelectScreen(screenParent, out var lvlSelectUI, out var lvlButtonUIs);
-        var gameplayGO    = BuildGameplayScreen(screenParent, boardMgrGO,
-                                out var gameplayUI, out var boardContainer);
+        // Always-visible background
+        ImgStretch("[ Background ]", canvas, Sp("Common/bg"), C_DARK);
 
-        // ── POPUPS ──────────────────────────────────────────────────────────
-        var popupParent   = CreatePanel("[ POPUPS ]",   canvasGO, Stretch());
-        var winGO         = BuildWinPopup(popupParent,   out var winUI);
-        var pauseGO       = BuildPausePopup(popupParent);
-        var settingsGO    = BuildSettingsPopup(popupParent);
-        var ctrlSettingsGO= BuildControlSettingsPopup(popupParent);
-        var quitGO        = BuildQuitPopup(popupParent);
+        // ── SCREENS ─────────────────────────────────────────────────────
+        var screenRoot = PanelStretch("[ SCREENS ]", canvas);
+        var splashGO   = BuildSplashScreen  (screenRoot);
+        var menuGO     = BuildMainMenuScreen (screenRoot);
+        var modeGO     = BuildModeSelectScreen(screenRoot);
 
-        // All popups start hidden
-        winGO.SetActive(false);
-        pauseGO.SetActive(false);
-        settingsGO.SetActive(false);
-        ctrlSettingsGO.SetActive(false);
+        LevelSelectUI lvlUI;  LevelButtonUI[] lvlBtns;
+        var lvlSelGO   = BuildLevelSelectScreen(screenRoot, out lvlUI, out lvlBtns);
+
+        GameplayUI gpUI;  RectTransform boardContainer;
+        var gpGO       = BuildGameplayScreen(screenRoot, out gpUI, out boardContainer);
+
+        // ── POPUPS ──────────────────────────────────────────────────────
+        var popRoot = PanelStretch("[ POPUPS ]", canvas);
+        WinPopupUI winUI;
+        var winGO   = BuildWinPopup           (popRoot, out winUI);
+        var pauseGO = BuildPausePopup         (popRoot);
+        var settGO  = BuildSettingsPopup      (popRoot);
+        var ctrlGO  = BuildControlSettingsPopup(popRoot);
+        var quitGO  = BuildQuitPopup          (popRoot);
+
+        // Hide all except splash
+        menuGO.SetActive(false); modeGO.SetActive(false);
+        lvlSelGO.SetActive(false); gpGO.SetActive(false);
+        winGO.SetActive(false); pauseGO.SetActive(false);
+        settGO.SetActive(false); ctrlGO.SetActive(false);
         quitGO.SetActive(false);
 
-        // ── Wire UIManager ──────────────────────────────────────────────────
-        var uiMgr = uiMgrGO.AddComponent<UIManager>();
-        SetPrivateField(uiMgr, "splashScreen",           splashGO);
-        SetPrivateField(uiMgr, "mainMenuScreen",         mainMenuGO);
-        SetPrivateField(uiMgr, "modeSelectScreen",       modeSelectGO);
-        SetPrivateField(uiMgr, "levelSelectScreen",      lvlSelectGO);
-        SetPrivateField(uiMgr, "gameplayScreen",         gameplayGO);
-        SetPrivateField(uiMgr, "winPopup",               winGO);
-        SetPrivateField(uiMgr, "pausePopup",             pauseGO);
-        SetPrivateField(uiMgr, "settingsPopup",          settingsGO);
-        SetPrivateField(uiMgr, "controlSettingsPopup",   ctrlSettingsGO);
-        SetPrivateField(uiMgr, "quitPopup",              quitGO);
+        // ── Wire UIManager ───────────────────────────────────────────────
+        Set(uiMgr, "splashScreen",           splashGO);
+        Set(uiMgr, "mainMenuScreen",         menuGO);
+        Set(uiMgr, "modeSelectScreen",       modeGO);
+        Set(uiMgr, "levelSelectScreen",      lvlSelGO);
+        Set(uiMgr, "gameplayScreen",         gpGO);
+        Set(uiMgr, "winPopup",               winGO);
+        Set(uiMgr, "pausePopup",             pauseGO);
+        Set(uiMgr, "settingsPopup",          settGO);
+        Set(uiMgr, "controlSettingsPopup",   ctrlGO);
+        Set(uiMgr, "quitPopup",              quitGO);
 
-        // ── Wire LevelController ─────────────────────────────────────────────
-        var lvlCtrl = lvlCtrlGO.AddComponent<LevelController>();
-        SetPrivateField(lvlCtrl, "gameplayUI", gameplayUI);
+        // ── Wire LevelController ─────────────────────────────────────────
+        Set(lvlCtrl, "gameplayUI", gpUI);
 
-        // ── Wire BoardManager ────────────────────────────────────────────────
-        var boardMgr = boardMgrGO.AddComponent<BoardManager>();
-        var tilePrefab = LoadOrCreateTilePrefab();
-        SetPrivateField(boardMgr, "boardContainer", boardContainer);
-        SetPrivateField(boardMgr, "tilePrefab",     tilePrefab);
-        SetPrivateField(boardMgr, "animDuration",   0.15f);
-        SetPrivateField(boardMgr, "tileGap",        3f);
+        // ── Wire BoardManager ────────────────────────────────────────────
+        var tilePrefab = GetOrCreateTilePrefab();
+        Set(boardMgr, "boardContainer", boardContainer);
+        Set(boardMgr, "tilePrefab",     tilePrefab);
 
-        // ── Wire BackButtonHandler ────────────────────────────────────────────
-        var bbh = backBtnGO.AddComponent<BackButtonHandler>();
+        // ── Wire BackButtonHandler ───────────────────────────────────────
         var quitUI = quitGO.GetComponent<QuitPopupUI>();
-        SetPrivateField(bbh, "quitPopup", quitUI);
+        Set(backBtn, "quitPopup", quitUI);
 
-        // ── Wire AudioManager SFX into scripts ────────────────────────────────
-        // (clips must be assigned manually in Inspector)
-
-        // ── Deactivate screens except splash ────────────────────────────────
-        mainMenuGO.SetActive(false);
-        modeSelectGO.SetActive(false);
-        lvlSelectGO.SetActive(false);
-        gameplayGO.SetActive(false);
-
-        // ── Save scene ───────────────────────────────────────────────────────
         UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
-        Debug.Log("<color=lime>[SlidooSceneBuilder] Scene built successfully! " +
-                  "Save with Ctrl+S then assign audio clips in AudioManager.</color>");
+        Debug.Log("<color=lime>[SlidooSceneBuilder] ✅ Done! Ctrl+S to save. Assign audio clips in AudioManager.</color>");
     }
 
-    // ════════════════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════════════
     //  SCREEN BUILDERS
-    // ════════════════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════════════
 
     static GameObject BuildSplashScreen(GameObject parent)
     {
-        var root = CreatePanel("[ Screen_Splash ]", parent, Stretch(), LoadSprite("Splash/splash_bg"), C_PANEL_BG);
-
-        // Logo centered
-        var logo = CreateImage("Logo", root, Center(400, 400), LoadSprite("Splash/logo"), Color.white);
+        // Full-screen background + logo
+        var root = PanelStretch("[ Screen_Splash ]", parent, Sp("Splash/splash_bg"), C_DARK);
+        root.AddComponent<SplashScreenUI>();
+        ImgRect("Logo", root, 0.5f, 0.6f, 700, 240, 0, 0, Sp("Splash/logo"), Color.white);
         return root;
     }
 
     static GameObject BuildMainMenuScreen(GameObject parent)
     {
-        var root = CreatePanel("[ Screen_MainMenu ]", parent, Stretch(), LoadSprite("Home/home_bg"), C_PANEL_BG);
+        var root = PanelStretch("[ Screen_MainMenu ]", parent, Sp("Home/home_bg"), C_DARK);
 
-        // Settings top-right
-        var settingsBtn = CreateButton("Btn_Settings", root,
-            TopRight(80, 80, -50, -50),
-            LoadSprite("Home/btn_settings"), Color.white, "");
+        //  ax    ay    w    h    ox   oy
+        var settBtn  = Btn("Btn_Settings",    root, 1f,   1f,  110, 110,  -70, -70, Sp("Home/btn_settings"), Color.white, "");
+        var playBtn  = Btn("Btn_Play",        root, 0.5f, 0.35f,520,170,    0,   0, Sp("Home/btn_play"),     Color.white, "");
+        var soundBtn = Btn("Btn_Sound",       root, 0f,   0f,  110, 110,   70,  70, Sp("Home/icon_sound"),   Color.white, "");
+        var debugBtn = Btn("Btn_DEBUG_Unlock",root, 1f,   0f,  160,  50,  -90,  35, null, C_RED, "UNLOCK ALL");
+        debugBtn.SetActive(false);   // remove to test; re-hide before shipping
 
-        // Play button – center bottom area
-        var playBtn = CreateButton("Btn_Play", root,
-            Center(300, 100, 0, -200),
-            LoadSprite("Home/btn_play"), Color.white, "");
-
-        // Sound toggle – bottom-left
-        var soundBtn = CreateButton("Btn_Sound", root,
-            BottomLeft(80, 80, 50, 50),
-            LoadSprite("Home/icon_sound"), Color.white, "");
-
-        // Debug unlock button (small, hidden corner) – bottom right
-        var debugBtn = CreateButton("Btn_DEBUG_Unlock", root,
-            BottomRight(120, 40, -10, 10),
-            null, C_BTN_RED, "UNLOCK ALL");
-        debugBtn.SetActive(false);    // hide in production; enable to test
-
-        // Wire
         var ui = root.AddComponent<MainMenuUI>();
-        SetPrivateField(ui, "playButton",        playBtn.GetComponent<Button>());
-        SetPrivateField(ui, "settingsButton",    settingsBtn.GetComponent<Button>());
-        SetPrivateField(ui, "debugUnlockButton", debugBtn.GetComponent<Button>());
+        Set(ui, "playButton",        playBtn .GetComponent<Button>());
+        Set(ui, "settingsButton",    settBtn .GetComponent<Button>());
+        Set(ui, "debugUnlockButton", debugBtn.GetComponent<Button>());
         return root;
     }
 
     static GameObject BuildModeSelectScreen(GameObject parent)
     {
-        var root = CreatePanel("[ Screen_ModeSelect ]", parent, Stretch(), null, C_PANEL_BG);
+        var root = PanelStretch("[ Screen_ModeSelect ]", parent);
+        ImgStretch("Bg", root, Sp("Common/bg"), C_DARK);
 
-        // Header
-        CreateImage("Header", root, TopCenter(600, 100, 0, -60), LoadSprite("ModeSelect/mode_header"), Color.white);
+        ImgRect("Header", root, 0.5f, 1f, 700, 130, 0, -80, Sp("ModeSelect/mode_header"), Color.white);
+        var backBtn = Btn("Btn_Back", root, 0f, 1f, 110, 110, 70, -70, Sp("ModeSelect/btn_back"), Color.white, "");
 
-        // Back button
-        var backBtn = CreateButton("Btn_Back", root,
-            TopLeft(80, 80, 50, -50), LoadSprite("ModeSelect/btn_back"), Color.white, "");
+        // 4 mode cards stacked vertically
+        string[] unlSp  = { "ModeSelect/mode_easy_unlocked","ModeSelect/mode_medium_unlocked",
+                             "ModeSelect/mode_hard_unlocked","ModeSelect/mode_master_unlocked" };
+        string[] lckSp  = { null,"ModeSelect/mode_medium_locked",
+                             "ModeSelect/mode_hard_locked","ModeSelect/mode_master_locked" };
+        string[] labels = { "Easy  3×3","Medium  4×4","Hard  5×5","Master  6×6" };
+        float[]  cardY  = { -260f,-450f,-640f,-830f };
 
-        // 4 mode buttons in a vertical column
-        string[] modeNames = { "Easy (3×3)", "Medium (4×4)", "Hard (5×5)", "Master (6×6)" };
-        string[] unlockedSprites = { "ModeSelect/mode_easy_unlocked", "ModeSelect/mode_medium_unlocked",
-                                     "ModeSelect/mode_hard_unlocked",  "ModeSelect/mode_master_unlocked" };
-        string[] lockedSprites   = { null, "ModeSelect/mode_medium_locked",
-                                           "ModeSelect/mode_hard_locked", "ModeSelect/mode_master_locked" };
-
-        var modeButtonUIs = new ModeButtonUI[4];
-        float startY = -120, stepY = -170;
-
+        var modeUIs = new ModeButtonUI[4];
         for (int i = 0; i < 4; i++)
         {
-            float y = startY + i * stepY;
-            var card = CreatePanel($"ModeCard_{modeNames[i]}", root, Center(600, 150, 0, y));
+            // Card panel – fixed size
+            var card = PanelRect($"ModeCard_{i}", root, 0.5f, 1f, 940, 170, 0, cardY[i]);
 
-            // Unlocked group
-            var unlockedGrp = CreatePanel("Unlocked", card, Stretch());
-            CreateImage("Bg_Unlocked", unlockedGrp, Stretch(), LoadSprite(unlockedSprites[i]), Color.white);
-            var nameText     = CreateTMP("Text_ModeName", unlockedGrp, Center(300, 50, -80, 20), modeNames[i], 24, TextAlignmentOptions.Left);
-            var progressText = CreateTMP("Text_Progress", unlockedGrp, Center(200, 36, 60, 20), "0 / 30", 20, TextAlignmentOptions.Right);
-            var starsText    = CreateTMP("Text_Stars",    unlockedGrp, Center(200, 36, 60, -20), "★ 0 / 90", 18, TextAlignmentOptions.Right);
-            starsText.color  = C_STAR_GOLD;
+            // ── Unlocked group ───────────────────────────────────────────
+            var uGrp = PanelStretch("Unlocked", card);
+            ImgStretch("Bg", uGrp, Sp(unlSp[i]), Color.white);
 
-            // Locked group
-            var lockedGrp = CreatePanel("Locked", card, Stretch());
-            if (lockedSprites[i] != null)
-                CreateImage("Bg_Locked", lockedGrp, Stretch(), LoadSprite(lockedSprites[i]), Color.white);
-            else
-                SetColor(lockedGrp, C_BTN_GREY);
-            CreateImage("Icon_Lock", lockedGrp, Center(60, 60, -100, 0), LoadSprite("LevelSelect/icon_lock"), Color.white);
-            var hintText = CreateTMP("Text_LockHint", lockedGrp, Center(380, 50, 30, 0), "Complete 15 Easy levels to unlock", 16, TextAlignmentOptions.Left);
-            hintText.color = Color.white;
+            var nameT = TMPRect("Text_Name",  uGrp, 0f,   0.5f, 400, 55, 60, 20, labels[i], 26, TextAlignmentOptions.Left);
+            var progT = TMPRect("Text_Prog",  uGrp, 1f,   0.5f, 180, 46,-55, 20, "0 / 30",  22, TextAlignmentOptions.Right);
+            var starT = TMPRect("Text_Stars", uGrp, 1f,   0.5f, 180, 40,-55,-22, "★ 0/90",  18, TextAlignmentOptions.Right);
+            nameT.color = new Color(0.1f,0.05f,0,1); progT.color = nameT.color; starT.color = C_GOLD;
 
-            // Add button on the card itself
+            // ── Locked group ─────────────────────────────────────────────
+            var lGrp = PanelStretch("Locked", card);
+            if (lckSp[i] != null) ImgStretch("Bg", lGrp, Sp(lckSp[i]), Color.white);
+            else                   ImgStretch("Bg", lGrp, null, C_GREY);
+            ImgRect("Icon_Lock", lGrp, 0.5f, 0.5f, 60, 60, -160, 0, Sp("LevelSelect/icon_lock"), Color.white);
+            var hintT = TMPRect("Text_Hint", lGrp, 0.5f, 0.5f, 500, 55, 40, 0,
+                i == 0 ? "" : $"Complete 15 {ModeConfig.ModeNames[i-1]} levels to unlock",
+                16, TextAlignmentOptions.Left);
+            hintT.color = Color.white;
+
+            // Invisible button covering whole card
             var btn = card.AddComponent<Button>();
-            SetupButtonTransition(btn);
+            StyleBtn(btn);
 
-            // Wire ModeButtonUI
-            var modeUI = card.AddComponent<ModeButtonUI>();
-            SetPrivateField(modeUI, "unlockedGroup",  unlockedGrp);
-            SetPrivateField(modeUI, "lockedGroup",    lockedGrp);
-            SetPrivateField(modeUI, "modeNameText",   nameText);
-            SetPrivateField(modeUI, "progressText",   progressText);
-            SetPrivateField(modeUI, "starsText",      starsText);
-            SetPrivateField(modeUI, "lockHintText",   hintText);
-            SetPrivateField(modeUI, "button",         btn);
-            modeButtonUIs[i] = modeUI;
+            var mUI = card.AddComponent<ModeButtonUI>();
+            Set(mUI,"unlockedGroup",uGrp); Set(mUI,"lockedGroup",lGrp);
+            Set(mUI,"modeNameText", nameT); Set(mUI,"progressText",progT);
+            Set(mUI,"starsText",    starT); Set(mUI,"lockHintText", hintT);
+            Set(mUI,"button",       btn);
+            modeUIs[i] = mUI;
 
-            lockedGrp.SetActive(i > 0);  // only Easy starts unlocked
+            uGrp.SetActive(i == 0);
+            lGrp.SetActive(i != 0);
         }
 
-        // Wire ModeSelectUI
         var ui = root.AddComponent<ModeSelectUI>();
-        SetPrivateField(ui, "modeButtons", modeButtonUIs);
-        SetPrivateField(ui, "backButton", backBtn.GetComponent<Button>());
+        Set(ui,"modeButtons", modeUIs);
+        Set(ui,"backButton",  backBtn.GetComponent<Button>());
         return root;
     }
 
     static GameObject BuildLevelSelectScreen(GameObject parent,
-        out LevelSelectUI lvlSelectUI, out LevelButtonUI[] lvlButtonUIs)
+        out LevelSelectUI lvlUI, out LevelButtonUI[] lvlBtns)
     {
-        var root = CreatePanel("[ Screen_LevelSelect ]", parent, Stretch(), null, C_PANEL_BG);
+        var root = PanelStretch("[ Screen_LevelSelect ]", parent);
+        ImgStretch("Bg", root, Sp("Common/bg"), C_DARK);
 
-        // Banner / title
-        var banner = CreateImage("Banner", root, TopCenter(700, 100, 0, -60), LoadSprite("LevelSelect/level_banner"), Color.white);
-        var titleText = CreateTMP("Text_ModeTitle", root, TopCenter(500, 60, 0, -55), "EASY", 32, TextAlignmentOptions.Center);
-        titleText.color = Color.white;
+        ImgRect("Banner",    root, 0.5f,1f, 800,115,   0,-65, Sp("LevelSelect/level_banner"), Color.white);
+        var titleT = TMPRect("Text_Title",root, 0.5f,1f, 600,70, 0,-65, "EASY", 34, TextAlignmentOptions.Center);
+        titleT.color = Color.white;
 
-        // Back + Controls buttons
-        var backBtn  = CreateButton("Btn_Back",     root, TopLeft(80,  80, 50, -50),  LoadSprite("ModeSelect/btn_back"), Color.white, "");
-        var ctrlBtn  = CreateButton("Btn_Controls", root, TopRight(140, 60, -50, -50), null, C_BTN_BLUE, "Controls");
+        var backBtn = Btn("Btn_Back",     root, 0f,1f,110,110, 70,-70, Sp("ModeSelect/btn_back"), Color.white, "");
+        var ctrlBtn = Btn("Btn_Controls", root, 1f,1f,200, 70,-115,-70, null, C_BLUE, "Controls");
 
-        // Scroll view for 30 level buttons
-        var scrollRoot = CreatePanel("LevelGrid_Scroll", root, new RectOffset(20, 20, 130, 20));
-        var grid       = CreatePanel("LevelGrid",        scrollRoot, Stretch());
-        var glg        = grid.AddComponent<GridLayoutGroup>();
-        glg.cellSize        = new Vector2(150, 150);
-        glg.spacing         = new Vector2(14, 14);
-        glg.startCorner     = GridLayoutGroup.Corner.UpperLeft;
-        glg.startAxis       = GridLayoutGroup.Axis.Horizontal;
-        glg.childAlignment  = TextAnchor.UpperCenter;
-        glg.constraint      = GridLayoutGroup.Constraint.FixedColumnCount;
+        // ── Scroll view ──────────────────────────────────────────────────
+        var scrollGO = PanelStretchPad("LevelGrid_Scroll", root, 10,10,135,10);
+        scrollGO.AddComponent<RectMask2D>();
+
+        var grid = PanelStretch("LevelGrid_Content", scrollGO);
+        var glg  = grid.AddComponent<GridLayoutGroup>();
+        glg.cellSize       = new Vector2(165,165);
+        glg.spacing        = new Vector2(14,14);
+        glg.startCorner    = GridLayoutGroup.Corner.UpperLeft;
+        glg.startAxis      = GridLayoutGroup.Axis.Horizontal;
+        glg.childAlignment = TextAnchor.UpperCenter;
+        glg.constraint     = GridLayoutGroup.Constraint.FixedColumnCount;
         glg.constraintCount = 5;
         var csf = grid.AddComponent<ContentSizeFitter>();
-        csf.verticalFit   = ContentSizeFitter.FitMode.PreferredSize;
+        csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
-        // Scroll rect
-        var sr = scrollRoot.AddComponent<ScrollRect>();
-        sr.content    = grid.GetComponent<RectTransform>();
-        sr.horizontal = false;
-        sr.vertical   = true;
+        var sr = scrollGO.AddComponent<ScrollRect>();
+        sr.content   = grid.GetComponent<RectTransform>();
+        sr.viewport  = scrollGO.GetComponent<RectTransform>();
+        sr.horizontal = false; sr.vertical = true;
         sr.movementType = ScrollRect.MovementType.Elastic;
 
-        // 30 Level Buttons
-        lvlButtonUIs = new LevelButtonUI[30];
+        // ── 30 level buttons ─────────────────────────────────────────────
+        lvlBtns = new LevelButtonUI[30];
         for (int i = 0; i < 30; i++)
         {
-            var cell = CreatePanel($"LevelBtn_{i + 1:D2}", grid, new Vector2(150, 150));
+            var cell = new GameObject($"LevelBtn_{i+1:D2}");
+            cell.transform.SetParent(grid.transform, false);
+            cell.AddComponent<RectTransform>();
 
-            // Tile background (unlocked = yellow, locked = grey)
-            var bg   = CreateImage("Bg_Unlocked", cell, Stretch(), LoadSprite("LevelSelect/tile_unlocked"), Color.white);
-            var bgL  = CreateImage("Bg_Locked",   cell, Stretch(), LoadSprite("LevelSelect/tile_locked"),   Color.white);
+            var bgU = ImgStretch("Bg_Unlocked", cell, Sp("LevelSelect/tile_unlocked"), Color.white);
+            var bgL = ImgStretch("Bg_Locked",   cell, Sp("LevelSelect/tile_locked"),   Color.white);
             bgL.SetActive(false);
 
-            var numText  = CreateTMP("Text_LevelNum", cell, Center(120, 50, 0, 20),  (i + 1).ToString(), 28, TextAlignmentOptions.Center);
-            numText.color = new Color(0.2f, 0.1f, 0f, 1f);
+            var numT = TMPRect("Text_Num",cell,0.5f,0.5f,130,60,0,22,(i+1).ToString(),32,TextAlignmentOptions.Center);
+            numT.color = new Color(0.1f,0.05f,0,1);
 
-            // 3 star icons
             var stars = new Image[3];
-            for (int s = 0; s < 3; s++)
+            for (int s=0; s<3; s++)
             {
-                float sx = -20 + s * 20f;
-                var starGO = CreateImage($"Star_{s}", cell, Center(18, 18, sx - 10, -28), LoadSprite("LevelSelect/icon_star"), C_STAR_EMPTY);
-                stars[s] = starGO.GetComponent<Image>();
+                var sg = ImgRect($"Star_{s}",cell,0.5f,0f,20,20,(s-1)*22f,22,Sp("LevelSelect/icon_star"),C_EMPTY);
+                stars[s] = sg.GetComponent<Image>();
             }
-
-            var lockIcon = CreateImage("Icon_Lock", cell, Center(50, 50, 0, 0), LoadSprite("LevelSelect/icon_lock"), Color.white);
+            var lockIcon = ImgRect("Icon_Lock",cell,0.5f,0.5f,55,55,0,0,Sp("LevelSelect/icon_lock"),Color.white);
             lockIcon.SetActive(false);
 
             var btn = cell.AddComponent<Button>();
-            SetupButtonTransition(btn);
+            StyleBtn(btn);
 
-            var lbUI = cell.AddComponent<LevelButtonUI>();
-            SetPrivateField(lbUI, "button",       btn);
-            SetPrivateField(lbUI, "levelNumberText", numText);
-            SetPrivateField(lbUI, "starImages",   stars);
-            SetPrivateField(lbUI, "lockIcon",     lockIcon.GetComponent<Image>());
-            SetPrivateField(lbUI, "buttonBg",     bg.GetComponent<Image>());
-            lvlButtonUIs[i] = lbUI;
+            var lb = cell.AddComponent<LevelButtonUI>();
+            Set(lb,"button",          btn);
+            Set(lb,"levelNumberText", numT);
+            Set(lb,"starImages",      stars);
+            Set(lb,"lockIcon",        lockIcon.GetComponent<Image>());
+            Set(lb,"buttonBg",        bgU.GetComponent<Image>());
+            lvlBtns[i] = lb;
         }
 
-        // Wire LevelSelectUI
-        lvlSelectUI = root.AddComponent<LevelSelectUI>();
-        SetPrivateField(lvlSelectUI, "modeTitleText",  titleText);
-        SetPrivateField(lvlSelectUI, "levelButtons",   lvlButtonUIs);
-        SetPrivateField(lvlSelectUI, "backButton",     backBtn.GetComponent<Button>());
-        SetPrivateField(lvlSelectUI, "controlsButton", ctrlBtn.GetComponent<Button>());
+        lvlUI = root.AddComponent<LevelSelectUI>();
+        Set(lvlUI,"modeTitleText", titleT);
+        Set(lvlUI,"levelButtons",  lvlBtns);
+        Set(lvlUI,"backButton",    backBtn.GetComponent<Button>());
+        Set(lvlUI,"controlsButton",ctrlBtn.GetComponent<Button>());
         return root;
     }
 
-    static GameObject BuildGameplayScreen(GameObject parent, GameObject boardMgrGO,
-        out GameplayUI gameplayUI, out RectTransform boardContainer)
+    static GameObject BuildGameplayScreen(GameObject parent,
+        out GameplayUI gpUI, out RectTransform boardContainer)
     {
-        var root = CreatePanel("[ Screen_Gameplay ]", parent, Stretch(), null, C_PANEL_BG);
+        const float HUD = 130f, BOT = 130f;
 
-        // ── Top HUD ──────────────────────────────────────────────────────────
-        var hud = CreatePanel("HUD", root, TopStretch(100));
-        hud.AddComponent<Image>().color = new Color(0, 0, 0, 0.3f);
+        var root = PanelStretch("[ Screen_Gameplay ]", parent);
+        ImgStretch("Bg", root, Sp("Common/bg"), C_DARK);
 
-        var pauseBtn    = CreateButton("Btn_Pause",  hud, TopLeft(70, 70, 15, -15),  null, C_TRANSPARENT, "⏸");
-        var moveText    = CreateTMP("Text_Moves",    hud, TopCenter(200, 50, -80, -25), "Moves: 0", 22, TextAlignmentOptions.Center);
-        var timerText   = CreateTMP("Text_Timer",    hud, TopCenter(160, 50,  80, -25), "00:00", 22, TextAlignmentOptions.Center);
-        moveText.color  = Color.white;
-        timerText.color = Color.white;
-        ((TextMeshProUGUI)moveText).fontStyle = FontStyles.Bold;
+        // ── Top HUD bar ──────────────────────────────────────────────────
+        var hud = TopBar("HUD", root, HUD, C_HUD);
+        var pauseBtn = Btn("Btn_Pause", hud, 0f,0.5f, 90,90, 55,0, null, C_CLEAR, "⏸");
+        var moveT = TMPRect("Text_Moves",hud,0.5f,0.5f,240,55,-100,0,"Moves: 0",24,TextAlignmentOptions.Center);
+        var tmrT  = TMPRect("Text_Timer",hud,0.5f,0.5f,180,55, 110,0,"00:00",   24,TextAlignmentOptions.Center);
+        moveT.color = Color.white; moveT.fontStyle = FontStyles.Bold;
+        tmrT .color = Color.white; tmrT .fontStyle = FontStyles.Bold;
 
-        // ── Board area ────────────────────────────────────────────────────────
-        var boardArea = CreatePanel("BoardArea", root, FullExcept(top: 110, bottom: 120));
-
-        // Wooden frame behind board
-        var frame = CreateImage("BoardFrame", boardArea, Stretch(),
-                                LoadSprite("Gameplay/board_frame"), Color.white);
-        frame.GetComponent<Image>().preserveAspect = true;
-
-        // The actual board container (tiles go here)
-        var boardGO = CreatePanel("BoardContainer", boardArea, Center(900, 900, 0, 0));
+        // ── Board area (between HUD and bottom bar) ───────────────────────
+        var boardArea = PanelStretchPad("BoardArea", root, 0,0,(int)HUD,(int)BOT);
+        ImgStretch("BoardFrame", boardArea, Sp("Gameplay/board_frame"), Color.white);
+        var boardGO = PanelRect("BoardContainer", boardArea, 0.5f,0.5f, 940,940, 0,0);
         boardContainer = boardGO.GetComponent<RectTransform>();
 
-        // ── Bottom bar ───────────────────────────────────────────────────────
-        var bottomBar = CreatePanel("BottomBar", root, BottomStretch(110));
-        bottomBar.AddComponent<Image>().color = new Color(0, 0, 0, 0.3f);
+        // ── Bottom bar ───────────────────────────────────────────────────
+        var botBar = BotBar("BottomBar", root, BOT, C_HUD);
 
-        var previewBtn = CreateButton("Btn_Preview", bottomBar, Center(140, 70, 0, 0), null, C_BTN_YELLOW, "👁 Preview");
-        previewBtn.AddComponent<PreviewHoldButton>();
-        // Remove standard button since PreviewHoldButton handles its own input
-        Object.DestroyImmediate(previewBtn.GetComponent<Button>());
+        // Preview hold-button
+        var pvGO = new GameObject("Btn_Preview");
+        pvGO.transform.SetParent(botBar.transform, false);
+        var pvRT = pvGO.AddComponent<RectTransform>();
+        pvRT.anchorMin = pvRT.anchorMax = new Vector2(0.5f,0.5f);
+        pvRT.pivot = new Vector2(0.5f,0.5f);
+        pvRT.sizeDelta = new Vector2(300,90);
+        pvRT.anchoredPosition = Vector2.zero;
+        pvGO.AddComponent<Image>().color = C_YELLOW;
+        var pvHold = pvGO.AddComponent<PreviewHoldButton>();
+        var pvLbl  = TMPRect("Label",pvGO,0.5f,0.5f,260,70,0,0,"👁  Preview",24,TextAlignmentOptions.Center);
+        pvLbl.color = new Color(0.1f,0.05f,0,1);
 
-        // ── Preview overlay ──────────────────────────────────────────────────
-        var previewPanel = CreatePanel("PreviewPanel", root, Stretch());
-        previewPanel.AddComponent<Image>().color = new Color(0, 0, 0, 0.75f);
-        var previewImg = CreateImage("PreviewImage", previewPanel, Center(900, 900, 0, 0), null, Color.white);
-        previewPanel.SetActive(false);
+        // ── Preview overlay ──────────────────────────────────────────────
+        var pvPanel = PanelStretch("PreviewPanel", root, null, new Color(0,0,0,0.78f));
+        var pvImgGO = new GameObject("PreviewImage");
+        pvImgGO.transform.SetParent(pvPanel.transform,false);
+        var pvImgRT = pvImgGO.AddComponent<RectTransform>();
+        pvImgRT.anchorMin = pvImgRT.anchorMax = new Vector2(0.5f,0.5f);
+        pvImgRT.pivot = new Vector2(0.5f,0.5f);
+        pvImgRT.sizeDelta = new Vector2(940,940);
+        pvImgRT.anchoredPosition = Vector2.zero;
+        var rawImg = pvImgGO.AddComponent<RawImage>();
+        rawImg.color = Color.white;
+        pvPanel.SetActive(false);
 
-        // ── Wire GameplayUI ──────────────────────────────────────────────────
-        gameplayUI = root.AddComponent<GameplayUI>();
-        SetPrivateField(gameplayUI, "moveCountText",  moveText);
-        SetPrivateField(gameplayUI, "timerText",      timerText);
-        SetPrivateField(gameplayUI, "pauseButton",    pauseBtn.GetComponent<Button>());
-        SetPrivateField(gameplayUI, "previewButton",  previewBtn.GetComponent<PreviewHoldButton>());
-        SetPrivateField(gameplayUI, "previewImage",   previewImg.GetComponent<RawImage>());
-        SetPrivateField(gameplayUI, "previewPanel",   previewPanel);
+        gpUI = root.AddComponent<GameplayUI>();
+        Set(gpUI,"moveCountText", moveT);
+        Set(gpUI,"timerText",     tmrT);
+        Set(gpUI,"pauseButton",   pauseBtn.GetComponent<Button>());
+        Set(gpUI,"previewButton", pvHold);
+        Set(gpUI,"previewImage",  rawImg);
+        Set(gpUI,"previewPanel",  pvPanel);
         return root;
     }
 
-    // ════════════════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════════════
     //  POPUP BUILDERS
-    // ════════════════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════════════
 
     static GameObject BuildWinPopup(GameObject parent, out WinPopupUI winUI)
     {
-        var dimmer = CreateDimmer("[ Popup_Win ]", parent);
-        var panel  = CreatePanel("Panel", dimmer, Center(680, 760), LoadSprite("Win/win_panel"), C_POPUP_BG);
+        var dim   = Dimmer("[ Popup_Win ]", parent);
+        var panel = PanelRect("Panel",dim,0.5f,0.5f,720,870,0,0,Sp("Win/win_panel"),C_POPUP);
 
-        // 3 Stars
+        // 3 Stars at top of panel
         var stars = new Image[3];
-        for (int s = 0; s < 3; s++)
+        float[] sx = { -105f, 0f, 105f };
+        for (int i=0; i<3; i++)
         {
-            float sx = -100 + s * 100f;
-            var sg = CreateImage($"Star_{s}", panel, Center(80, 80, sx, 220), LoadSprite("LevelSelect/icon_star"), C_STAR_GOLD);
-            stars[s] = sg.GetComponent<Image>();
+            var sg = ImgRect($"Star_{i}",panel,0.5f,1f,100,100,sx[i],-120,Sp("LevelSelect/icon_star"),C_GOLD);
+            stars[i] = sg.GetComponent<Image>();
         }
 
-        var movesText    = CreateTMP("Text_Moves",     panel, Center(400, 50, 0,  110),  "0 Moves",    26, TextAlignmentOptions.Center);
-        var timeText     = CreateTMP("Text_Time",      panel, Center(400, 50, 0,  60),   "00:00",      22, TextAlignmentOptions.Center);
-        var bestMoveTxt  = CreateTMP("Text_BestMoves", panel, Center(300, 36, 0,  10),   "Best: -",    18, TextAlignmentOptions.Center);
-        var bestTimeTxt  = CreateTMP("Text_BestTime",  panel, Center(300, 36, 0, -30),   "Best: --:--",18, TextAlignmentOptions.Center);
-        movesText .color = Color.white;
-        timeText  .color = new Color(0.9f, 0.9f, 0.9f, 1f);
-        bestMoveTxt.color = new Color(0.75f, 0.75f, 0.75f, 1f);
-        bestTimeTxt.color = new Color(0.75f, 0.75f, 0.75f, 1f);
+        var movesT    = TMPRect("Text_Moves",    panel,0.5f,0.5f,450,60, 0, 180,"0 Moves",    30,TextAlignmentOptions.Center);
+        var timeT     = TMPRect("Text_Time",     panel,0.5f,0.5f,450,50, 0, 110,"00:00",      24,TextAlignmentOptions.Center);
+        var bestMoveT = TMPRect("Text_BestMoves",panel,0.5f,0.5f,350,42, 0,  50,"Best: -",    20,TextAlignmentOptions.Center);
+        var bestTimeT = TMPRect("Text_BestTime", panel,0.5f,0.5f,350,42, 0,   5,"Best: --:--",20,TextAlignmentOptions.Center);
+        movesT.color = Color.white;
+        timeT .color = new Color(0.9f,0.9f,0.9f,1);
+        bestMoveT.color = bestTimeT.color = new Color(0.75f,0.75f,0.75f,1);
 
-        // Unlock banner
-        var unlockBanner = CreatePanel("UnlockBanner", panel, Center(500, 50, 0, -80));
-        unlockBanner.AddComponent<Image>().color = new Color(0.1f, 0.6f, 0.1f, 0.9f);
-        var unlockTxt = CreateTMP("Text_Unlock", unlockBanner, Stretch(), "🎉 New Mode Unlocked!", 20, TextAlignmentOptions.Center);
+        var unlockBanner = PanelRect("UnlockBanner",panel,0.5f,0.5f,560,55,0,-55,null,new Color(0.1f,0.6f,0.1f,0.9f));
+        var unlockTxt    = TMPStretch("Text_Unlock",unlockBanner,"🎉 New Mode Unlocked!",20,TextAlignmentOptions.Center);
+        unlockTxt.color  = Color.white;
         unlockBanner.SetActive(false);
 
-        // Buttons row
-        var nextBtn   = CreateButton("Btn_Next",   panel, Center(190, 70, 95,  -175), LoadSprite("Win/btn_next"),   Color.white, "");
-        var replayBtn = CreateButton("Btn_Replay", panel, Center(190, 70, -95, -175), LoadSprite("Win/btn_replay"), Color.white, "");
-        var menuBtn   = CreateButton("Btn_Menu",   panel, Center(130, 55, 0,   -245), null, C_BTN_GREY, "Menu");
+        var nextBtn   = Btn("Btn_Next",  panel,0.5f,0f,220,80, 115,110,Sp("Win/btn_next"),  Color.white,"");
+        var replayBtn = Btn("Btn_Replay",panel,0.5f,0f,220,80,-115,110,Sp("Win/btn_replay"),Color.white,"");
+        var menuBtn   = Btn("Btn_Menu",  panel,0.5f,0f,160,60,   0, 20,null,C_GREY,"Menu");
 
-        winUI = dimmer.AddComponent<WinPopupUI>();
-        SetPrivateField(winUI, "starImages",     stars);
-        SetPrivateField(winUI, "movesText",      movesText);
-        SetPrivateField(winUI, "timeText",       timeText);
-        SetPrivateField(winUI, "bestMovesText",  bestMoveTxt);
-        SetPrivateField(winUI, "bestTimeText",   bestTimeTxt);
-        SetPrivateField(winUI, "unlockBanner",   unlockBanner);
-        SetPrivateField(winUI, "unlockBannerText", unlockTxt);
-        SetPrivateField(winUI, "nextButton",     nextBtn.GetComponent<Button>());
-        SetPrivateField(winUI, "replayButton",   replayBtn.GetComponent<Button>());
-        SetPrivateField(winUI, "menuButton",     menuBtn.GetComponent<Button>());
-        return dimmer;
+        winUI = dim.AddComponent<WinPopupUI>();
+        Set(winUI,"starImages",     stars);
+        Set(winUI,"movesText",      movesT);    Set(winUI,"timeText",      timeT);
+        Set(winUI,"bestMovesText",  bestMoveT); Set(winUI,"bestTimeText",  bestTimeT);
+        Set(winUI,"unlockBanner",   unlockBanner); Set(winUI,"unlockBannerText",unlockTxt);
+        Set(winUI,"nextButton",     nextBtn  .GetComponent<Button>());
+        Set(winUI,"replayButton",   replayBtn.GetComponent<Button>());
+        Set(winUI,"menuButton",     menuBtn  .GetComponent<Button>());
+        return dim;
     }
 
     static GameObject BuildPausePopup(GameObject parent)
     {
-        var dimmer = CreateDimmer("[ Popup_Pause ]", parent);
-        var panel  = CreatePanel("Panel", dimmer, Center(560, 600), LoadSprite("Pause/pause_panel"), C_POPUP_BG);
+        var dim   = Dimmer("[ Popup_Pause ]", parent);
+        var panel = PanelRect("Panel",dim,0.5f,0.5f,620,650,0,0,Sp("Pause/pause_panel"),C_POPUP);
 
-        var title   = CreateTMP("Text_Title", panel, TopCenter(400, 60, 0, -50), "PAUSED", 36, TextAlignmentOptions.Center);
-        title.color = Color.white;
+        var titleT = TMPRect("Text_Title",panel,0.5f,1f,460,70,0,-65,"PAUSED",38,TextAlignmentOptions.Center);
+        titleT.color = Color.white;
 
-        var resumeBtn  = CreateButton("Btn_Resume",  panel, Center(400, 90, 0,  40),  LoadSprite("Pause/btn_resume"),  Color.white, "");
-        var restartBtn = CreateButton("Btn_Restart", panel, Center(400, 90, 0, -60),  LoadSprite("Pause/btn_restart"), Color.white, "");
-        var menuBtn    = CreateButton("Btn_Menu",    panel, Center(400, 90, 0, -160), LoadSprite("Pause/btn_menu"),    Color.white, "");
+        var r = Btn("Btn_Resume", panel,0.5f,0.5f,460,100,0, 110,Sp("Pause/btn_resume"), Color.white,"");
+        var s = Btn("Btn_Restart",panel,0.5f,0.5f,460,100,0,   0,Sp("Pause/btn_restart"),Color.white,"");
+        var m = Btn("Btn_Menu",   panel,0.5f,0.5f,460,100,0,-110,Sp("Pause/btn_menu"),   Color.white,"");
 
-        var ui = dimmer.AddComponent<PausePopupUI>();
-        SetPrivateField(ui, "resumeButton",  resumeBtn .GetComponent<Button>());
-        SetPrivateField(ui, "restartButton", restartBtn.GetComponent<Button>());
-        SetPrivateField(ui, "menuButton",    menuBtn   .GetComponent<Button>());
-        return dimmer;
+        var ui = dim.AddComponent<PausePopupUI>();
+        Set(ui,"resumeButton", r.GetComponent<Button>());
+        Set(ui,"restartButton",s.GetComponent<Button>());
+        Set(ui,"menuButton",   m.GetComponent<Button>());
+        return dim;
     }
 
     static GameObject BuildSettingsPopup(GameObject parent)
     {
-        var dimmer = CreateDimmer("[ Popup_Settings ]", parent);
-        var panel  = CreatePanel("Panel", dimmer, Center(560, 500), LoadSprite("Settings/settings_panel"), C_POPUP_BG);
+        var dim   = Dimmer("[ Popup_Settings ]", parent);
+        var panel = PanelRect("Panel",dim,0.5f,0.5f,620,540,0,0,Sp("Settings/settings_panel"),C_POPUP);
 
-        var title  = CreateTMP("Text_Title", panel, TopCenter(400, 60, 0, -50), "SETTINGS", 32, TextAlignmentOptions.Center);
-        title.color = Color.white;
+        var titleT = TMPRect("Text_Title",panel,0.5f,1f,480,65,0,-60,"SETTINGS",34,TextAlignmentOptions.Center);
+        titleT.color = Color.white;
 
-        // Sound row
-        CreateTMP("Label_Sound", panel, Center(200, 40, -100, 60), "Sound", 24, TextAlignmentOptions.Left).color = Color.white;
-        var soundToggle = BuildToggle("Toggle_Sound", panel, Center(100, 50, 100, 60));
+        TMPRect("Lbl_Sound",panel,0.5f,0.5f,220,50,-120, 70,"Sound",26,TextAlignmentOptions.Left).color = Color.white;
+        var sndToggle = BuildToggle("Toggle_Sound",panel,0.5f,0.5f,110,55, 100, 70);
 
-        // Music row
-        CreateTMP("Label_Music", panel, Center(200, 40, -100, -20), "Music", 24, TextAlignmentOptions.Left).color = Color.white;
-        var musicToggle = BuildToggle("Toggle_Music", panel, Center(100, 50, 100, -20));
+        TMPRect("Lbl_Music",panel,0.5f,0.5f,220,50,-120,-10,"Music",26,TextAlignmentOptions.Left).color = Color.white;
+        var musToggle = BuildToggle("Toggle_Music",panel,0.5f,0.5f,110,55, 100,-10);
 
-        var closeBtn = CreateButton("Btn_Close", panel, TopRight(60, 60, -20, -20), LoadSprite("Settings/btn_close"), Color.white, "");
+        var closeBtn = Btn("Btn_Close",panel,1f,1f,65,65,-40,-40,Sp("Settings/btn_close"),Color.white,"");
 
-        var ui = dimmer.AddComponent<SettingsPopupUI>();
-        SetPrivateField(ui, "soundToggle", soundToggle);
-        SetPrivateField(ui, "musicToggle", musicToggle);
-        SetPrivateField(ui, "closeButton", closeBtn.GetComponent<Button>());
-        return dimmer;
+        var ui = dim.AddComponent<SettingsPopupUI>();
+        Set(ui,"soundToggle",sndToggle); Set(ui,"musicToggle",musToggle);
+        Set(ui,"closeButton",closeBtn.GetComponent<Button>());
+        return dim;
     }
 
     static GameObject BuildControlSettingsPopup(GameObject parent)
     {
-        var dimmer = CreateDimmer("[ Popup_ControlSettings ]", parent);
-        var panel  = CreatePanel("Panel", dimmer, Center(600, 540), LoadSprite("ControlSettings/controls_panel"), C_POPUP_BG);
+        var dim   = Dimmer("[ Popup_ControlSettings ]", parent);
+        var panel = PanelRect("Panel",dim,0.5f,0.5f,660,600,0,0,Sp("ControlSettings/controls_panel"),C_POPUP);
 
-        var title  = CreateTMP("Text_Title", panel, TopCenter(500, 60, 0, -50), "CONTROL SETTINGS", 28, TextAlignmentOptions.Center);
-        title.color = Color.white;
+        TMPRect("Text_Title",panel,0.5f,1f,560,65,0,-60,"CONTROL SETTINGS",28,TextAlignmentOptions.Center).color=Color.white;
 
-        var swipeBtn = CreateButton("Btn_Swipe", panel, Center(460, 80, 0,  60),  null, C_BTN_GREEN, "Swipe (default)");
-        var tapBtn   = CreateButton("Btn_Tap",   panel, Center(460, 80, 0, -30),  null, C_BTN_BLUE,  "Tap");
-        var dragBtn  = CreateButton("Btn_Drag",  panel, Center(460, 80, 0, -120), null, C_BTN_GREY,  "Drag");
+        var sw = Btn("Btn_Swipe",panel,0.5f,0.5f,520,90,0, 120,null,C_GREEN,"👆  Swipe  (default)");
+        var tp = Btn("Btn_Tap",  panel,0.5f,0.5f,520,90,0,  10,null,C_BLUE, "👇  Tap");
+        var dr = Btn("Btn_Drag", panel,0.5f,0.5f,520,90,0,-100,null,C_GREY, "✋  Drag");
+        var cl = Btn("Btn_Close",panel,1f,1f,65,65,-40,-40,Sp("Settings/btn_close"),Color.white,"");
 
-        var closeBtn = CreateButton("Btn_Close", panel, TopRight(60, 60, -20, -20), LoadSprite("Settings/btn_close"), Color.white, "");
-
-        var ui = dimmer.AddComponent<ControlSettingsPopupUI>();
-        SetPrivateField(ui, "swipeButton", swipeBtn.GetComponent<Button>());
-        SetPrivateField(ui, "tapButton",   tapBtn  .GetComponent<Button>());
-        SetPrivateField(ui, "dragButton",  dragBtn .GetComponent<Button>());
-        SetPrivateField(ui, "closeButton", closeBtn.GetComponent<Button>());
-        return dimmer;
+        var ui = dim.AddComponent<ControlSettingsPopupUI>();
+        Set(ui,"swipeButton",sw.GetComponent<Button>()); Set(ui,"tapButton",tp.GetComponent<Button>());
+        Set(ui,"dragButton", dr.GetComponent<Button>()); Set(ui,"closeButton",cl.GetComponent<Button>());
+        return dim;
     }
 
     static GameObject BuildQuitPopup(GameObject parent)
     {
-        var dimmer = CreateDimmer("[ Popup_Quit ]", parent);
-        var panel  = CreatePanel("Panel", dimmer, Center(580, 420), LoadSprite("Quit/quit_panel"), C_POPUP_BG);
+        var dim   = Dimmer("[ Popup_Quit ]", parent);
+        var panel = PanelRect("Panel",dim,0.5f,0.5f,640,480,0,0,Sp("Quit/quit_panel"),C_POPUP);
 
-        var title   = CreateTMP("Text_Title", panel, TopCenter(500, 60, 0, -60), "QUIT GAME?", 32, TextAlignmentOptions.Center);
-        title.color = Color.white;
-        var subtitle = CreateTMP("Text_Sub", panel, Center(440, 40, 0, 40), "Are you sure you want to quit?", 20, TextAlignmentOptions.Center);
-        subtitle.color = new Color(0.85f, 0.85f, 0.85f, 1f);
+        TMPRect("Text_Title",panel,0.5f,1f,540,65,0,-70,"QUIT GAME?",34,TextAlignmentOptions.Center).color=Color.white;
+        TMPRect("Text_Sub",  panel,0.5f,0.5f,480,50,0,50,"Are you sure you want to quit?",20,TextAlignmentOptions.Center)
+            .color = new Color(0.85f,0.85f,0.85f,1);
 
-        var quitBtn   = CreateButton("Btn_Quit",   panel, Center(200, 80, 110, -80),  LoadSprite("Quit/btn_quit"),   Color.white, "");
-        var cancelBtn = CreateButton("Btn_Cancel",  panel, Center(200, 80, -110, -80), LoadSprite("Quit/btn_cancel"), Color.white, "");
+        var q = Btn("Btn_Quit",  panel,0.5f,0f,230,90, 125,80,Sp("Quit/btn_quit"),  Color.white,"");
+        var c = Btn("Btn_Cancel",panel,0.5f,0f,230,90,-125,80,Sp("Quit/btn_cancel"),Color.white,"");
 
-        var ui = dimmer.AddComponent<QuitPopupUI>();
-        SetPrivateField(ui, "quitButton",   quitBtn  .GetComponent<Button>());
-        SetPrivateField(ui, "cancelButton", cancelBtn.GetComponent<Button>());
-        return dimmer;
+        var ui = dim.AddComponent<QuitPopupUI>();
+        Set(ui,"quitButton",  q.GetComponent<Button>());
+        Set(ui,"cancelButton",c.GetComponent<Button>());
+        return dim;
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    //  AUDIO MANAGER BUILDER
-    // ════════════════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════════════
+    //  AUDIO MANAGER  (child GOs for SFX + Music sources)
+    // ════════════════════════════════════════════════════════════════════
 
-    static GameObject BuildAudioManager(GameObject parent)
+    static void BuildAudioManager(GameObject parent)
     {
-        var go = CreateChild("AudioManager", parent);
-        var am = go.AddComponent<AudioManager>();
-
-        var sfxGO   = new GameObject("SFX_Source");   sfxGO  .transform.SetParent(go.transform);
-        var musicGO = new GameObject("Music_Source");  musicGO.transform.SetParent(go.transform);
-
-        var sfxSrc   = sfxGO  .AddComponent<AudioSource>();
-        var musicSrc = musicGO.AddComponent<AudioSource>();
-        sfxSrc  .playOnAwake = false;
-        musicSrc.playOnAwake = false;
-        musicSrc.loop        = true;
-
-        SetPrivateField(am, "sfxSource",   sfxSrc);
-        SetPrivateField(am, "musicSource", musicSrc);
-        return go;
+        var go  = Child("AudioManager", parent);
+        var am  = go.AddComponent<AudioManager>();
+        var sfx = Child("SFX_Source",   go).AddComponent<AudioSource>();
+        var mus = Child("Music_Source", go).AddComponent<AudioSource>();
+        sfx.playOnAwake = false;
+        mus.playOnAwake = false; mus.loop = true;
+        Set(am,"sfxSource",  sfx);
+        Set(am,"musicSource",mus);
     }
 
-    // ════════════════════════════════════════════════════════════════════════
-    //  TILE PREFAB
-    // ════════════════════════════════════════════════════════════════════════
-
-    static GameObject LoadOrCreateTilePrefab()
-    {
-        const string PATH = "Assets/Prefabs/Tile.prefab";
-        var existing = AssetDatabase.LoadAssetAtPath<GameObject>(PATH);
-        if (existing != null) return existing;
-
-        // Build in scene then save as prefab
-        var go = new GameObject("Tile");
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0, 1);
-
-        var img = go.AddComponent<RawImage>();
-        img.color = Color.white;
-        img.raycastTarget = true;
-
-        var outline = go.AddComponent<Outline>();
-        outline.effectColor    = C_TILE_BORDER;
-        outline.effectDistance = new Vector2(2, 2);
-
-        go.AddComponent<Tile>();
-
-        Directory.CreateDirectory("Assets/Prefabs");
-        var prefab = PrefabUtility.SaveAsPrefabAsset(go, PATH);
-        Object.DestroyImmediate(go);
-        AssetDatabase.Refresh();
-        return prefab;
-    }
-
-    // ════════════════════════════════════════════════════════════════════════
-    //  UI PRIMITIVE HELPERS
-    // ════════════════════════════════════════════════════════════════════════
+    // ════════════════════════════════════════════════════════════════════
+    //  CANVAS
+    // ════════════════════════════════════════════════════════════════════
 
     static GameObject BuildCanvas()
     {
         var go = new GameObject("[ CANVAS ]");
-        var canvas = go.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
-        canvas.sortingOrder = 0;
+        var cv = go.AddComponent<Canvas>();
+        cv.renderMode  = RenderMode.ScreenSpaceOverlay;
+        cv.sortingOrder = 0;
 
-        var scaler = go.AddComponent<CanvasScaler>();
-        scaler.uiScaleMode         = CanvasScaler.ScaleMode.ScaleWithScreenSize;
-        scaler.referenceResolution = new Vector2(1080, 1920);
-        scaler.matchWidthOrHeight  = 0.5f;
-
+        var sc = go.AddComponent<CanvasScaler>();
+        sc.uiScaleMode         = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        sc.referenceResolution = new Vector2(1080,1920);
+        sc.matchWidthOrHeight  = 0.5f;
         go.AddComponent<GraphicRaycaster>();
 
-        // EventSystem
         if (Object.FindFirstObjectByType<UnityEngine.EventSystems.EventSystem>() == null)
         {
             var es = new GameObject("EventSystem");
@@ -606,248 +511,166 @@ public static class SlidooSceneBuilder
         return go;
     }
 
-    static GameObject CreatePanel(string name, GameObject parent, RectOffset padding)
-    {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin        = Vector2.zero;
-        rt.anchorMax        = Vector2.one;
-        rt.offsetMin        = new Vector2(padding.left,   padding.bottom);
-        rt.offsetMax        = new Vector2(-padding.right, -padding.top);
-        return go;
-    }
+    // ════════════════════════════════════════════════════════════════════
+    //  TILE PREFAB
+    // ════════════════════════════════════════════════════════════════════
 
-    static GameObject CreatePanel(string name, GameObject parent, Vector4 anchor,
-        Sprite sprite = null, Color? bgColor = null)
+    static GameObject GetOrCreateTilePrefab()
     {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin        = new Vector2(anchor.x, anchor.y);
-        rt.anchorMax        = new Vector2(anchor.z, anchor.w);
-        rt.offsetMin        = Vector2.zero;
-        rt.offsetMax        = Vector2.zero;
+        const string PATH = "Assets/Prefabs/Tile.prefab";
+        var ex = AssetDatabase.LoadAssetAtPath<GameObject>(PATH);
+        if (ex != null) return ex;
 
-        if (sprite != null || bgColor.HasValue)
-        {
-            var img = go.AddComponent<Image>();
-            if (sprite != null) { img.sprite = sprite; img.type = Image.Type.Sliced; }
-            if (bgColor.HasValue) img.color = bgColor.Value;
-        }
-        return go;
-    }
-
-    // Panel with explicit size and pivot-center anchor
-    static GameObject CreatePanel(string name, GameObject parent, Vector2 size)
-    {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
+        var go = new GameObject("Tile");
         var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin        = new Vector2(0.5f, 0.5f);
-        rt.anchorMax        = new Vector2(0.5f, 0.5f);
-        rt.pivot            = new Vector2(0.5f, 0.5f);
-        rt.sizeDelta        = size;
-        return go;
-    }
-
-    static GameObject CreateImage(string name, GameObject parent, Vector4 anchor,
-        Sprite sprite, Color color, bool rawImage = false)
-    {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin = new Vector2(anchor.x, anchor.y);
-        rt.anchorMax = new Vector2(anchor.z, anchor.w);
-        rt.offsetMin = Vector2.zero;
-        rt.offsetMax = Vector2.zero;
-        if (rawImage)
-        {
-            var ri = go.AddComponent<RawImage>();
-            ri.color = color;
-        }
-        else
-        {
-            var img = go.AddComponent<Image>();
-            img.sprite = sprite;
-            img.color  = color;
-            img.raycastTarget = false;
-            if (sprite != null) img.type = Image.Type.Simple;
-        }
-        return go;
-    }
-
-    // Overload for explicit size + offset from center
-    static GameObject CreateImage(string name, GameObject parent, Vector2 size, float ox, float oy,
-        Sprite sprite, Color color)
-    {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin = new Vector2(0.5f, 0.5f);
-        rt.anchorMax = new Vector2(0.5f, 0.5f);
-        rt.pivot     = new Vector2(0.5f, 0.5f);
-        rt.sizeDelta        = size;
-        rt.anchoredPosition = new Vector2(ox, oy);
+        rt.anchorMin = rt.anchorMax = rt.pivot = new Vector2(0,1);
         var ri = go.AddComponent<RawImage>();
-        ri.color = color;
-        return go;
+        ri.color = Color.white; ri.raycastTarget = true;
+        var ol = go.AddComponent<Outline>();
+        ol.effectColor = C_BORDER; ol.effectDistance = new Vector2(2,2);
+        go.AddComponent<Tile>();
+
+        Directory.CreateDirectory("Assets/Prefabs");
+        var pf = PrefabUtility.SaveAsPrefabAsset(go, PATH);
+        Object.DestroyImmediate(go);
+        AssetDatabase.Refresh();
+        return pf;
     }
 
-    static GameObject CreateButton(string name, GameObject parent, Vector4 anchor,
-        Sprite sprite, Color bg, string label)
+    // ════════════════════════════════════════════════════════════════════
+    //  UI PRIMITIVE HELPERS  –  NO Vector4 encoding, NO NaN positions
+    // ════════════════════════════════════════════════════════════════════
+
+    // ── RectTransform setup ───────────────────────────────────────────────
+
+    /// Fill parent (optional padding).
+    static void RTStretch(RectTransform rt, float l=0,float r=0,float t=0,float b=0)
     {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin = new Vector2(anchor.x, anchor.y);
-        rt.anchorMax = new Vector2(anchor.z, anchor.w);
-        rt.offsetMin = Vector2.zero;
-        rt.offsetMax = Vector2.zero;
-
-        var img = go.AddComponent<Image>();
-        img.sprite = sprite;
-        img.color  = bg;
-        if (sprite != null) img.type = Image.Type.Simple;
-
-        var btn = go.AddComponent<Button>();
-        SetupButtonTransition(btn);
-
-        if (!string.IsNullOrEmpty(label))
-        {
-            var txt = CreateTMP("Label", go, Stretch(), label, 22, TextAlignmentOptions.Center);
-            txt.color = new Color(0.1f, 0.05f, 0f, 1f);
-        }
-        return go;
+        rt.anchorMin = Vector2.zero; rt.anchorMax = Vector2.one;
+        rt.offsetMin = new Vector2(l,b); rt.offsetMax = new Vector2(-r,-t);
     }
 
-    static TextMeshProUGUI CreateTMP(string name, GameObject parent, Vector4 anchor,
-        string text, float size, TextAlignmentOptions align)
+    /// Fixed size, pivot centered, anchor at (ax,ay), offset by (ox,oy).
+    static void RTRect(RectTransform rt, float ax,float ay,float w,float h,float ox=0,float oy=0)
     {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin = new Vector2(anchor.x, anchor.y);
-        rt.anchorMax = new Vector2(anchor.z, anchor.w);
-        rt.offsetMin = Vector2.zero;
-        rt.offsetMax = Vector2.zero;
-        var tmp = go.AddComponent<TextMeshProUGUI>();
-        tmp.text      = text;
-        tmp.fontSize  = size;
-        tmp.alignment = align;
-        tmp.enableWordWrapping = false;
-        tmp.overflowMode = TextOverflowModes.Ellipsis;
-        return tmp;
+        rt.anchorMin = rt.anchorMax = new Vector2(ax,ay);
+        rt.pivot     = new Vector2(0.5f,0.5f);
+        rt.sizeDelta        = new Vector2(w,h);
+        rt.anchoredPosition = new Vector2(ox,oy);
     }
 
-    static Toggle BuildToggle(string name, GameObject parent, Vector4 anchor)
-    {
-        var go = CreateEmpty(name);
-        go.transform.SetParent(parent.transform, false);
-        var rt = go.AddComponent<RectTransform>();
-        rt.anchorMin = new Vector2(anchor.x, anchor.y);
-        rt.anchorMax = new Vector2(anchor.z, anchor.w);
-        rt.offsetMin = Vector2.zero;
-        rt.offsetMax = Vector2.zero;
+    // ── Factories ─────────────────────────────────────────────────────────
 
-        var bg   = CreateImage("Background", go, Stretch(), null, new Color(0.2f, 0.2f, 0.2f));
-        var check = CreateImage("Checkmark", bg,  Stretch(), LoadSprite("Settings/toggle_on"), Color.white);
-        var toggle = go.AddComponent<Toggle>();
-        toggle.targetGraphic = bg.GetComponent<Image>();
-        toggle.graphic       = check.GetComponent<Image>();
-        toggle.isOn          = true;
-        return toggle;
+    static GameObject Create(string name)                   { return new GameObject(name); }
+    static GameObject Child(string name, GameObject parent) { var g=Create(name); g.transform.SetParent(parent.transform,false); return g; }
+
+    static GameObject PanelStretch(string name, GameObject parent, Sprite sp=null, Color? col=null)
+    {
+        var g = Child(name,parent); RTStretch(g.AddComponent<RectTransform>());
+        if (sp!=null||col.HasValue){ var i=g.AddComponent<Image>(); if(sp!=null){i.sprite=sp;i.type=Image.Type.Simple;} i.color=col??Color.white; i.raycastTarget=false; }
+        return g;
     }
 
-    static GameObject CreateDimmer(string name, GameObject parent)
+    static GameObject PanelStretchPad(string name,GameObject parent,int l,int r,int t,int b)
     {
-        var go = CreatePanel(name, parent, Stretch());
-        var img = go.AddComponent<Image>();
-        img.color = new Color(0, 0, 0, 0.6f);
-        img.raycastTarget = true;
-        return go;
+        var g=Child(name,parent); RTStretch(g.AddComponent<RectTransform>(),l,r,t,b); return g;
     }
 
-    static GameObject CreateChild(string name, GameObject parent)
+    static GameObject PanelRect(string name,GameObject parent,float ax,float ay,float w,float h,float ox=0,float oy=0,Sprite sp=null,Color? col=null)
     {
-        var go = new GameObject(name);
-        go.transform.SetParent(parent.transform, false);
-        return go;
+        var g=Child(name,parent); RTRect(g.AddComponent<RectTransform>(),ax,ay,w,h,ox,oy);
+        if(sp!=null||col.HasValue){ var i=g.AddComponent<Image>(); if(sp!=null){i.sprite=sp;i.type=Image.Type.Simple;} i.color=col??Color.white; }
+        return g;
     }
 
-    static GameObject CreateEmpty(string name)
+    static GameObject ImgStretch(string name,GameObject parent,Sprite sp,Color col)
     {
-        var go = new GameObject(name);
-        return go;
+        var g=Child(name,parent); RTStretch(g.AddComponent<RectTransform>());
+        var i=g.AddComponent<Image>(); i.sprite=sp; i.color=col; i.raycastTarget=false;
+        if(sp!=null) i.type=Image.Type.Simple; return g;
     }
 
-    static void SetColor(GameObject go, Color c)
+    static GameObject ImgRect(string name,GameObject parent,float ax,float ay,float w,float h,float ox,float oy,Sprite sp,Color col)
     {
-        var img = go.GetComponent<Image>();
-        if (img == null) img = go.AddComponent<Image>();
-        img.color = c;
+        var g=Child(name,parent); RTRect(g.AddComponent<RectTransform>(),ax,ay,w,h,ox,oy);
+        var i=g.AddComponent<Image>(); i.sprite=sp; i.color=col; i.raycastTarget=false;
+        if(sp!=null) i.type=Image.Type.Simple; return g;
     }
 
-    static void SetupButtonTransition(Button btn)
+    static GameObject Btn(string name,GameObject parent,float ax,float ay,float w,float h,float ox,float oy,Sprite sp,Color bg,string label)
     {
-        var colors          = btn.colors;
-        colors.normalColor  = Color.white;
-        colors.highlightedColor = new Color(0.9f, 0.9f, 0.9f, 1f);
-        colors.pressedColor = new Color(0.75f, 0.75f, 0.75f, 1f);
-        btn.colors          = colors;
-        btn.transition      = Selectable.Transition.ColorTint;
+        var g=Child(name,parent); RTRect(g.AddComponent<RectTransform>(),ax,ay,w,h,ox,oy);
+        var i=g.AddComponent<Image>(); i.sprite=sp; i.color=bg; if(sp!=null) i.type=Image.Type.Simple;
+        var b=g.AddComponent<Button>(); StyleBtn(b);
+        if(!string.IsNullOrEmpty(label)) { var lt=TMPStretch("Label",g,label,22,TextAlignmentOptions.Center); lt.color=new Color(0.1f,0.05f,0,1); }
+        return g;
     }
 
-    static Sprite LoadSprite(string subpath)
+    static TextMeshProUGUI TMPStretch(string name,GameObject parent,string text,float size,TextAlignmentOptions align)
     {
-        string path = $"Assets/UI/Sprites/{subpath}.png";
-        var sp = AssetDatabase.LoadAssetAtPath<Sprite>(path);
-        if (sp == null)
-            Debug.LogWarning($"[SlidooSceneBuilder] Missing sprite: {path}");
+        var g=Child(name,parent); RTStretch(g.AddComponent<RectTransform>());
+        var t=g.AddComponent<TextMeshProUGUI>(); t.text=text; t.fontSize=size; t.alignment=align; t.enableWordWrapping=false; return t;
+    }
+
+    static TextMeshProUGUI TMPRect(string name,GameObject parent,float ax,float ay,float w,float h,float ox,float oy,string text,float size,TextAlignmentOptions align)
+    {
+        var g=Child(name,parent); RTRect(g.AddComponent<RectTransform>(),ax,ay,w,h,ox,oy);
+        var t=g.AddComponent<TextMeshProUGUI>(); t.text=text; t.fontSize=size; t.alignment=align; t.enableWordWrapping=false; t.overflowMode=TextOverflowModes.Ellipsis; return t;
+    }
+
+    static GameObject Dimmer(string name,GameObject parent)
+    {
+        var g=Child(name,parent); RTStretch(g.AddComponent<RectTransform>());
+        var i=g.AddComponent<Image>(); i.color=C_DIMMER; i.raycastTarget=true; return g;
+    }
+
+    static GameObject TopBar(string name,GameObject parent,float h,Color col)
+    {
+        var g=Child(name,parent); var rt=g.AddComponent<RectTransform>();
+        rt.anchorMin=new Vector2(0,1); rt.anchorMax=new Vector2(1,1);
+        rt.pivot=new Vector2(0.5f,1f); rt.sizeDelta=new Vector2(0,h); rt.anchoredPosition=Vector2.zero;
+        g.AddComponent<Image>().color=col; return g;
+    }
+
+    static GameObject BotBar(string name,GameObject parent,float h,Color col)
+    {
+        var g=Child(name,parent); var rt=g.AddComponent<RectTransform>();
+        rt.anchorMin=new Vector2(0,0); rt.anchorMax=new Vector2(1,0);
+        rt.pivot=new Vector2(0.5f,0f); rt.sizeDelta=new Vector2(0,h); rt.anchoredPosition=Vector2.zero;
+        g.AddComponent<Image>().color=col; return g;
+    }
+
+    static Toggle BuildToggle(string name,GameObject parent,float ax,float ay,float w,float h,float ox,float oy)
+    {
+        var g=Child(name,parent); RTRect(g.AddComponent<RectTransform>(),ax,ay,w,h,ox,oy);
+        var bg    = ImgStretch("Background",g, null, new Color(0.2f,0.2f,0.2f,1f));
+        var check = ImgStretch("Checkmark", bg,Sp("Settings/toggle_on"),Color.white);
+        var t=g.AddComponent<Toggle>();
+        t.targetGraphic=bg.GetComponent<Image>(); t.graphic=check.GetComponent<Image>(); t.isOn=true; return t;
+    }
+
+    static void StyleBtn(Button b)
+    {
+        var c=b.colors;
+        c.normalColor=Color.white; c.highlightedColor=new Color(0.9f,0.9f,0.9f,1f);
+        c.pressedColor=new Color(0.75f,0.75f,0.75f,1f);
+        b.colors=c; b.transition=Selectable.Transition.ColorTint;
+    }
+
+    static Sprite Sp(string sub)
+    {
+        var sp = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/UI/Sprites/{sub}.png");
+        if(sp==null) Debug.LogWarning($"[Builder] Missing sprite: Assets/UI/Sprites/{sub}.png");
         return sp;
     }
 
-    // ── Anchor shortcut helpers ────────────────────────────────────────────
-
-    // anchor = (minX, minY, maxX, maxY) in [0..1] – returned as Vector4
-    static Vector4 Stretch()                 => new Vector4(0, 0, 1, 1);
-    static Vector4 TopStretch(float h)       => new Vector4(0, 1, 1, 1);  // override with offset
-    static Vector4 BottomStretch(float h)    => new Vector4(0, 0, 1, 0);
-    static Vector4 TopCenter(float w, float h, float ox, float oy) =>
-        EncodeCenter(0.5f, 1f, w, h, ox, oy);
-    static Vector4 TopLeft(float w, float h, float ox, float oy) =>
-        EncodeCenter(0f, 1f, w, h, ox, oy);
-    static Vector4 TopRight(float w, float h, float ox, float oy) =>
-        EncodeCenter(1f, 1f, w, h, ox, oy);
-    static Vector4 BottomLeft(float w, float h, float ox, float oy) =>
-        EncodeCenter(0f, 0f, w, h, ox, oy);
-    static Vector4 BottomRight(float w, float h, float ox, float oy) =>
-        EncodeCenter(1f, 0f, w, h, ox, oy);
-    static Vector4 Center(float w, float h, float ox = 0, float oy = 0) =>
-        EncodeCenter(0.5f, 0.5f, w, h, ox, oy);
-    static Vector4 EncodeCenter(float ax, float ay, float w, float h, float ox, float oy)
-        => new Vector4(ax, ay, w, h + ox * 1000 + oy);   // carry extra in zw – we decode below
-
-    // We actually use a different overload pattern – let's use a struct instead
-    // ↑ The anchor helpers need a rethink to pass sizeDelta. Let's use a different approach.
-    // All "named anchors" return a Vector4 that encodes anchor point + size + offset.
-    // The CreateButton/CreateTMP/CreateImage overloads decode this.
-    // For simplicity this builder uses the direct overloads above that take explicit params.
-
-    static RectOffset Stretch(int all = 0)   => new RectOffset(all, all, all, all);
-    static RectOffset FullExcept(float top = 0, float bottom = 0, float left = 0, float right = 0)
-        => new RectOffset((int)left, (int)right, (int)top, (int)bottom);
-
-    // ── Reflection helper (sets serialized private fields) ────────────────────
-    static void SetPrivateField(object obj, string fieldName, object value)
+    // Reflection field setter
+    static void Set(object obj, string field, object value)
     {
-        var type  = obj.GetType();
-        var field = type.GetField(fieldName,
-            System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
-        if (field != null)
-            field.SetValue(obj, value);
-        else
-            Debug.LogWarning($"[SlidooSceneBuilder] Field not found: {type.Name}.{fieldName}");
+        var f=obj.GetType().GetField(field,
+            System.Reflection.BindingFlags.NonPublic|System.Reflection.BindingFlags.Instance);
+        if(f!=null) f.SetValue(obj,value);
+        else Debug.LogWarning($"[Builder] Field not found: {obj.GetType().Name}.{field}");
     }
 }
 #endif
