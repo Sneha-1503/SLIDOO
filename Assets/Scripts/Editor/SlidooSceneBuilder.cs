@@ -34,6 +34,9 @@ public static class SlidooSceneBuilder
     [MenuItem("Slidoo/Build Scene %#b")]
     public static void BuildScene()
     {
+        // ── Auto-fix sprite import types first ───────────────────────────
+        FixSpriteImportTypes();
+
         // ── Clear previous objects ───────────────────────────────────────
         foreach (var go in GameObject.FindObjectsByType<GameObject>(FindObjectsSortMode.None))
             if (go.transform.parent == null && go.name != "Main Camera")
@@ -657,10 +660,42 @@ public static class SlidooSceneBuilder
         b.colors=c; b.transition=Selectable.Transition.ColorTint;
     }
 
+    // ── Force all UI sprites to Sprite (2D and UI) import type ───────────
+    [MenuItem("Slidoo/Fix Sprite Import Types")]
+    public static void FixSpriteImportTypes()
+    {
+        var guids = AssetDatabase.FindAssets("t:Texture2D", new[]{"Assets/UI/Sprites"});
+        int fixed_ = 0;
+        foreach (var guid in guids)
+        {
+            var path = AssetDatabase.GUIDToAssetPath(guid);
+            var imp  = AssetImporter.GetAtPath(path) as TextureImporter;
+            if (imp == null) continue;
+            if (imp.textureType != TextureImporterType.Sprite)
+            {
+                imp.textureType  = TextureImporterType.Sprite;
+                imp.spriteImportMode = SpriteImportMode.Single;
+                imp.SaveAndReimport();
+                fixed_++;
+            }
+        }
+        AssetDatabase.Refresh();
+        Debug.Log($"<color=cyan>[SlidooSceneBuilder] Fixed {fixed_} sprite import types.</color>");
+    }
+
     static Sprite Sp(string sub)
     {
-        var sp = AssetDatabase.LoadAssetAtPath<Sprite>($"Assets/UI/Sprites/{sub}.png");
-        if(sp==null) Debug.LogWarning($"[Builder] Missing sprite: Assets/UI/Sprites/{sub}.png");
+        var path = $"Assets/UI/Sprites/{sub}.png";
+        // Auto-fix import type if needed
+        var imp = AssetImporter.GetAtPath(path) as TextureImporter;
+        if (imp != null && imp.textureType != TextureImporterType.Sprite)
+        {
+            imp.textureType = TextureImporterType.Sprite;
+            imp.spriteImportMode = SpriteImportMode.Single;
+            imp.SaveAndReimport();
+        }
+        var sp = AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        if (sp == null) Debug.LogWarning($"[Builder] Missing sprite: {path}");
         return sp;
     }
 
