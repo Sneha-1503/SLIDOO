@@ -24,11 +24,32 @@ namespace Slidoo
         [SerializeField] private Button          controlsButton;
 
         private GameMode _currentMode;
+        private ScrollRect levelScroll;
 
         private void Awake()
         {
             if (Instance != null) { Destroy(gameObject); return; }
             Instance = this;
+            levelScroll = GetComponentInChildren<ScrollRect>(true);
+            if (levelScroll != null)
+            {
+                var viewport = levelScroll.viewport != null
+                    ? levelScroll.viewport : (RectTransform)levelScroll.transform;
+                var hitArea = viewport.GetComponent<Image>();
+                if (hitArea == null)
+                {
+                    hitArea = viewport.gameObject.AddComponent<Image>();
+                    hitArea.color = Color.clear;
+                }
+                hitArea.raycastTarget = true;
+                levelScroll.horizontal = false;
+                levelScroll.vertical = true;
+                levelScroll.inertia = true;
+                levelScroll.decelerationRate = 0.135f;
+                levelScroll.elasticity = 0.12f;
+                levelScroll.scrollSensitivity = 45f;
+                levelScroll.movementType = ScrollRect.MovementType.Elastic;
+            }
         }
 
         private void Start()
@@ -42,6 +63,12 @@ namespace Slidoo
             _currentMode = mode;
             UIManager.Instance.ShowScreen(UIScreen.LevelSelect);
             RefreshButtons();
+            if (levelScroll != null)
+            {
+                Canvas.ForceUpdateCanvases();
+                levelScroll.StopMovement();
+                levelScroll.verticalNormalizedPosition = 1f;
+            }
         }
 
         private void OnEnable() => RefreshButtons();
@@ -73,10 +100,8 @@ namespace Slidoo
             // ── Level count text: "X / 30 Completed" ─────────────────────
             if (levelCountText != null)
             {
-                int completed = 0;
-                for (int i = 0; i < ModeConfig.LevelsPerMode; i++)
-                    if (modeSave.levels[i].stars > 0) completed++;
-                levelCountText.text = $"{completed} / {ModeConfig.LevelsPerMode} Completed";
+                int highest = System.Array.FindLastIndex(modeSave.levels, level => level.unlocked);
+                levelCountText.text = $"Level {Mathf.Max(1, highest + 1)} / {ModeConfig.LevelsPerMode}";
             }
 
             // ── Level buttons ─────────────────────────────────────────────

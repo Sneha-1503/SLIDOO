@@ -124,7 +124,7 @@ public static class SlidooSceneBuilder
     {
         // Full-screen background + logo
         var root = PanelStretch("[ Screen_Splash ]", parent, Sp("Splash/splash_bg"), C_DARK);
-        root.AddComponent<SplashScreenUI>();
+        root.AddComponent<SplashScreenUI>().EnsureLoadingBar();
         ImgRect("Logo", root, 0.5f, 0.6f, 700, 240, 0, 0, Sp("Splash/logo"), Color.white);
         return root;
     }
@@ -192,6 +192,7 @@ public static class SlidooSceneBuilder
             var btn = card.AddComponent<Button>();
             StyleBtn(btn);
 
+            card.AddComponent<ButtonPressFeedback>();
             var mUI = card.AddComponent<ModeButtonUI>();
             Set(mUI,"unlockedGroup",uGrp); Set(mUI,"lockedGroup",lGrp);
             Set(mUI,"modeNameText", nameT); Set(mUI,"progressText",progT);
@@ -214,28 +215,6 @@ public static class SlidooSceneBuilder
     {
         var root = PanelStretch("[ Screen_LevelSelect ]", parent);
         ImgStretch("Bg", root, Sp("Common/bg"), C_DARK);
-
-        // ── Top HUD banner area ──────────────────────────────────────────
-        // Background banner strip
-        ImgRect("Banner", root, 0.5f,1f, 1080,160, 0,0, Sp("LevelSelect/level_banner"), C_DARK);
-
-        // Mode-specific HUD tab images (one shown at a time, swapped by LevelSelectUI)
-        // Sprites: tab_easy, tab_hard, tab_master  (Medium uses tab_easy style fallback)
-        var hudEasy   = ImgRect("Hud_Easy",   root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_easy"),   Color.white);
-        var hudMedium = ImgRect("Hud_Medium", root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_medium"), Color.white);
-        var hudHard   = ImgRect("Hud_Hard",   root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_hard"),   Color.white);
-        var hudMaster = ImgRect("Hud_Master", root, 0.5f,1f, 560,120, 0,-65, Sp("LevelSelect/tab_master"), Color.white);
-        // Hide all except Easy (LevelSelectUI will swap on ShowForMode)
-        hudMedium.SetActive(false); hudHard.SetActive(false); hudMaster.SetActive(false);
-
-        // Level count text below banner  "12 / 30 Completed"
-        var lvlCountT = TMPRect("Text_LevelCount", root, 0.5f,1f, 500,45, 0,-130, "0 / 30 Completed", 22, TextAlignmentOptions.Center);
-        lvlCountT.color = new Color(1f,0.95f,0.7f,1f);
-
-        // Fallback text title (hidden when HUD images are assigned)
-        var titleT = TMPRect("Text_Title", root, 0.5f,1f, 500,55, 0,-65, "EASY", 30, TextAlignmentOptions.Center);
-        titleT.color = Color.white;
-        titleT.gameObject.SetActive(false); // hidden — HUD images take over
 
         var backBtn = Btn("Btn_Back",     root, 0f,1f, 110,110,  70,-70, Sp("ModeSelect/btn_back"), Color.white, "");
         var ctrlBtn = Btn("Btn_Controls", root, 1f,1f, 200, 60, -115,-70, null, C_BLUE, "Controls");
@@ -305,6 +284,7 @@ public static class SlidooSceneBuilder
             var btn = cell.AddComponent<Button>();
             StyleBtn(btn);
 
+            cell.AddComponent<ButtonPressFeedback>();
             var lb = cell.AddComponent<LevelButtonUI>();
             Set(lb,"button",          btn);
             Set(lb,"levelNumberText", numT);
@@ -316,20 +296,121 @@ public static class SlidooSceneBuilder
 
         // ── Wire LevelSelectUI ───────────────────────────────────────────
         lvlUI = root.AddComponent<LevelSelectUI>();
-        // Assign 4 HUD images in mode order: Easy=0, Medium=1, Hard=2, Master=3
-        var hudImgs = new Image[4] {
-            hudEasy  .GetComponent<Image>(),
-            hudMedium.GetComponent<Image>(),
-            hudHard  .GetComponent<Image>(),
-            hudMaster.GetComponent<Image>()
-        };
-        Set(lvlUI,"modeHudImages",  hudImgs);
-        Set(lvlUI,"modeTitleText",  titleT);
-        Set(lvlUI,"levelCountText", lvlCountT);
+        ConfigureLevelSelect(lvlUI);
         Set(lvlUI,"levelButtons",   lvlBtns);
         Set(lvlUI,"backButton",     backBtn.GetComponent<Button>());
         Set(lvlUI,"controlsButton", ctrlBtn.GetComponent<Button>());
         return root;
+    }
+
+    [InitializeOnLoadMethod]
+    static void UpdateOpenLegacyLevelSelect()
+    {
+        EditorApplication.delayCall += () =>
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+            var ui = Object.FindFirstObjectByType<LevelSelectUI>(FindObjectsInactive.Include);
+            if (ui != null && ui.gameObject.scene.path == "Assets/Scenes/SampleScene.unity"
+                && ui.transform.Find("LevelCountBadge") == null)
+                UpdateLevelSelect();
+        };
+    }
+
+    [MenuItem("Slidoo/Update Level Select")]
+    static void UpdateLevelSelect()
+    {
+        var ui = Object.FindFirstObjectByType<LevelSelectUI>(FindObjectsInactive.Include);
+        if (ui == null) return;
+        Undo.RegisterFullObjectHierarchyUndo(ui.gameObject, "Update Level Select");
+        ConfigureLevelSelect(ui);
+        UnityEditor.SceneManagement.EditorSceneManager.MarkSceneDirty(ui.gameObject.scene);
+    }
+
+    static void ConfigureLevelSelect(LevelSelectUI ui)
+    {
+        var images = new Image[4];
+        var root = ui.gameObject;
+        for (int i = 0; i < images.Length; i++)
+        {
+            string mode = ModeConfig.ModeNames[i];
+            string tab = "tab_" + mode.ToLowerInvariant();
+            var sprite = Sp("LevelSelect/" + tab, tab + "_0");
+            var image = System.Array.Find(ui.GetComponentsInChildren<Image>(true),
+                candidate => candidate.sprite != null && sprite != null && candidate.sprite.texture == sprite.texture);
+            if (image == null)
+            {
+                var obj = ImgRect("Hud_" + mode, root, .5f,1f, 940,305, 0,-420, sprite, Color.white);
+                Undo.RegisterCreatedObjectUndo(obj, "Add mode HUD");
+                image = obj.GetComponent<Image>();
+                if (i > 0)
+                {
+                    var source = images[0].rectTransform;
+                    var rect = image.rectTransform;
+                    rect.SetParent(source.parent, false);
+                    rect.anchorMin = source.anchorMin;
+                    rect.anchorMax = source.anchorMax;
+                    rect.pivot = source.pivot;
+                    rect.sizeDelta = source.sizeDelta;
+                    rect.anchoredPosition3D = source.anchoredPosition3D;
+                    rect.localScale = source.localScale;
+                    rect.localRotation = source.localRotation;
+                }
+            }
+            images[i] = image;
+            image.sprite = sprite;
+            image.preserveAspect = true;
+            image.gameObject.SetActive(i == 0);
+        }
+        foreach (string oldName in new[] { "Text_Title", "Banner" })
+        {
+            var old = ui.transform.Find(oldName);
+            if (old != null && old != images[0].transform && !images[0].transform.IsChildOf(old))
+                old.gameObject.SetActive(false);
+        }
+        var viewport = (RectTransform)ui.transform.Find("LevelGrid_Scroll");
+        var grid = viewport.GetComponentInChildren<GridLayoutGroup>(true);
+        grid.constraint = GridLayoutGroup.Constraint.FixedColumnCount;
+        grid.constraintCount = 3;
+        grid.cellSize = new Vector2(285, 285);
+        grid.spacing = new Vector2(22, 22);
+        var content = (RectTransform)grid.transform;
+        content.anchorMin = new Vector2(0, 1);
+        content.anchorMax = Vector2.one;
+        content.pivot = new Vector2(.5f, 1);
+        content.anchoredPosition = Vector2.zero;
+
+        var corners = new Vector3[4];
+        images[0].rectTransform.GetWorldCorners(corners);
+        var parent = (RectTransform)ui.transform;
+        float bottom = parent.InverseTransformPoint(corners[0]).y - parent.rect.yMax;
+        var badge = ui.transform.Find("LevelCountBadge");
+        if (badge == null)
+        {
+            var obj = ImgRect("LevelCountBadge", root, .5f,1f, 300,85, 0,0,
+                Sp("LevelSelect/level_banner", "level_banner_29"), Color.white);
+            Undo.RegisterCreatedObjectUndo(obj, "Add level counter badge");
+            badge = obj.transform;
+        }
+        ((RectTransform)badge).anchoredPosition = new Vector2(0, bottom - 17);
+        var count = badge.Find("Text_LevelCount")?.GetComponent<TextMeshProUGUI>();
+        if (count == null)
+        {
+            count = ui.transform.Find("Text_LevelCount")?.GetComponent<TextMeshProUGUI>();
+            if (count != null) count.transform.SetParent(badge, false);
+            else count = TMPRect("Text_LevelCount", badge.gameObject, .5f,.5f, 245,54, 0,0,
+                "Level 1 / 30", 34, TextAlignmentOptions.Center);
+        }
+        RTRect(count.rectTransform, .5f,.5f, 245,54);
+        count.text = "Level 1 / 30";
+        count.fontSize = 34;
+        count.fontStyle = FontStyles.Bold;
+        viewport.offsetMax = new Vector2(viewport.offsetMax.x, bottom - 68);
+        foreach (var tile in content.GetComponentsInChildren<LevelButtonUI>(true))
+            tile.ApplyTileStyle();
+
+        Set(ui, "modeHudImages", images);
+        Set(ui, "modeTitleText", null);
+        Set(ui, "levelCountText", count);
     }
 
     static GameObject BuildGameplayScreen(GameObject parent,
@@ -353,6 +434,7 @@ public static class SlidooSceneBuilder
         ImgStretch("BoardFrame", boardArea, Sp("Gameplay/board_frame"), Color.white);
         var boardGO = PanelRect("BoardContainer", boardArea, 0.5f,0.5f, 940,940, 0,0);
         boardContainer = boardGO.GetComponent<RectTransform>();
+        boardArea.AddComponent<PuzzleBoardLayout>().Refresh();
 
         // ── Bottom bar ───────────────────────────────────────────────────
         var botBar = BotBar("BottomBar", root, BOT, C_HUD);
@@ -476,6 +558,7 @@ public static class SlidooSceneBuilder
 
         var ui = dim.AddComponent<SettingsPopupUI>();
         Set(ui,"soundToggle",sndToggle); Set(ui,"musicToggle",musToggle);
+        ui.ConfigureInputs();
         Set(ui,"closeButton",closeBtn.GetComponent<Button>());
         return dim;
     }
@@ -495,6 +578,7 @@ public static class SlidooSceneBuilder
         var ui = dim.AddComponent<ControlSettingsPopupUI>();
         Set(ui,"swipeButton",sw.GetComponent<Button>()); Set(ui,"tapButton",tp.GetComponent<Button>());
         Set(ui,"dragButton", dr.GetComponent<Button>()); Set(ui,"closeButton",cl.GetComponent<Button>());
+        ui.EnsureIndicators();
         return dim;
     }
 

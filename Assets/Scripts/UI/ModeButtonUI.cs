@@ -33,6 +33,17 @@ namespace Slidoo
         {
             _mode = mode;
 
+            // The decorative backgrounds do not receive raycasts.
+            // Give the Button a hit area covering the entire card.
+            var hitArea = button.GetComponent<Image>();
+            if (hitArea == null)
+            {
+                hitArea = button.gameObject.AddComponent<Image>();
+                hitArea.color = Color.clear;
+            }
+            hitArea.raycastTarget = true;
+            button.targetGraphic = hitArea;
+
             bool locked = !save.modeUnlocked;
             unlockedGroup.SetActive(!locked);
             lockedGroup  .SetActive(locked);
@@ -61,7 +72,7 @@ namespace Slidoo
         private void OnClicked()
         {
             AudioManager.Instance.PlayButtonClick();
-            LevelSelectUI.Instance.ShowForMode(_mode);
+            UIManager.Instance.ShowLevelSelect(_mode);
         }
     }
 }

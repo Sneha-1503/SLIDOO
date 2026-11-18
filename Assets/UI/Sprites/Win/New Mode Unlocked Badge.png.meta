@@ -1,0 +1,689 @@
+fileFormatVersion: 2
+guid: 080817b65dc071d4889bbf2b91a02702
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3081485090152558011
+    second: New Mode Unlocked Badge_0
+  - first:
+      213: -5943942545242024417
+    second: New Mode Unlocked Badge_1
+  - first:
+      213: 8292151351090469063
+    second: New Mode Unlocked Badge_2
+  - first:
+      213: 7279445127606340201
+    second: New Mode Unlocked Badge_3
+  - first:
+      213: 6263403682771677776
+    second: New Mode Unlocked Badge_4
+  - first:
+      213: -6007589551478056572
+    second: New Mode Unlocked Badge_5
+  - first:
+      213: 4227217601862678369
+    second: New Mode Unlocked Badge_6
+  - first:
+      213: 957433757323158672
+    second: New Mode Unlocked Badge_7
+  - first:
+      213: -4673609685280591541
+    second: New Mode Unlocked Badge_8
+  - first:
+      213: -977890883042063013
+    second: New Mode Unlocked Badge_9
+  - first:
+      213: 6188172201878234246
+    second: New Mode Unlocked Badge_10
+  - first:
+      213: 4981131495403998866
+    second: New Mode Unlocked Badge_11
+  - first:
+      213: -7963204811556284030
+    second: New Mode Unlocked Badge_12
+  - first:
+      213: 3484489267329849763
+    second: New Mode Unlocked Badge_13
+  - first:
+      213: -5172563783272538319
+    second: New Mode Unlocked Badge_14
+  - first:
+      213: -3350249257404734703
+    second: New Mode Unlocked Badge_15
+  - first:
+      213: 3553860985729193732
+    second: New Mode Unlocked Badge_16
+  - first:
+      213: -756224099386353194
+    second: New Mode Unlocked Badge_17
+  - first:
+      213: -3250890217758052802
+    second: New Mode Unlocked Badge_18
+  - first:
+      213: 757151763511026747
+    second: New Mode Unlocked Badge_19
+  - first:
+      213: 4371975796099887165
+    second: New Mode Unlocked Badge_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 50
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 21
+        width: 2142
+        height: 680
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbda433fc52a3ca20800000000000000
+      internalID: 3081485090152558011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_1
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 691
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1694895fbfd28da0800000000000000
+      internalID: -5943942545242024417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_2
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 683
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8d58958b3a31370800000000000000
+      internalID: 8292151351090469063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_3
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 677
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96a8ce086c8c50560800000000000000
+      internalID: 7279445127606340201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_4
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 693
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052ba7ce6741ce650800000000000000
+      internalID: 6263403682771677776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_5
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 693
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4895dcbe121c0aca0800000000000000
+      internalID: -6007589551478056572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_6
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 695
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 167bd4b13081aaa30800000000000000
+      internalID: 4227217601862678369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_7
+      rect:
+        serializedVersion: 2
+        x: 1343
+        y: 681
+        width: 66
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 094e639fdec794d00800000000000000
+      internalID: 957433757323158672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_8
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 683
+        width: 45
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b41760ac0c0042fb0800000000000000
+      internalID: -4673609685280591541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_9
+      rect:
+        serializedVersion: 2
+        x: 1607
+        y: 691
+        width: 76
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d4f274c65dd62f0800000000000000
+      internalID: -977890883042063013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_10
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 685
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68426edc4ddc0e550800000000000000
+      internalID: 6188172201878234246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_11
+      rect:
+        serializedVersion: 2
+        x: 603
+        y: 685
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ec01334b8802540800000000000000
+      internalID: 4981131495403998866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_12
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 675
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289918d2a630d7190800000000000000
+      internalID: -7963204811556284030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_13
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 683
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a95bdae6846b5030800000000000000
+      internalID: 3484489267329849763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_14
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 685
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13f5dfff4ac5738b0800000000000000
+      internalID: -5172563783272538319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_15
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 684
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 113ef5ffc068181d0800000000000000
+      internalID: -3350249257404734703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_16
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 681
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4071283ccb9d15130800000000000000
+      internalID: 3553860985729193732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_17
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 23
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d99c71303a5185f0800000000000000
+      internalID: -756224099386353194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_18
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 21
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3e2db6229482e2d0800000000000000
+      internalID: -3250890217758052802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_19
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 31
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b34a2217481f18a00800000000000000
+      internalID: 757151763511026747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: New Mode Unlocked Badge_20
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 23
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d30b325a2d06cac30800000000000000
+      internalID: 4371975796099887165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      New Mode Unlocked Badge_0: 3081485090152558011
+      New Mode Unlocked Badge_1: -5943942545242024417
+      New Mode Unlocked Badge_10: 6188172201878234246
+      New Mode Unlocked Badge_11: 4981131495403998866
+      New Mode Unlocked Badge_12: -7963204811556284030
+      New Mode Unlocked Badge_13: 3484489267329849763
+      New Mode Unlocked Badge_14: -5172563783272538319
+      New Mode Unlocked Badge_15: -3350249257404734703
+      New Mode Unlocked Badge_16: 3553860985729193732
+      New Mode Unlocked Badge_17: -756224099386353194
+      New Mode Unlocked Badge_18: -3250890217758052802
+      New Mode Unlocked Badge_19: 757151763511026747
+      New Mode Unlocked Badge_2: 8292151351090469063
+      New Mode Unlocked Badge_20: 4371975796099887165
+      New Mode Unlocked Badge_3: 7279445127606340201
+      New Mode Unlocked Badge_4: 6263403682771677776
+      New Mode Unlocked Badge_5: -6007589551478056572
+      New Mode Unlocked Badge_6: 4227217601862678369
+      New Mode Unlocked Badge_7: 957433757323158672
+      New Mode Unlocked Badge_8: -4673609685280591541
+      New Mode Unlocked Badge_9: -977890883042063013
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

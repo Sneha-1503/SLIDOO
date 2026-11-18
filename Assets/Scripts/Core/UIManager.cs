@@ -43,13 +43,25 @@ namespace Slidoo
 
         private void Start()
         {
+            if (splashScreen == null)
+            {
+                var splash = FindFirstObjectByType<SplashScreenUI>(FindObjectsInactive.Include);
+                if (splash != null) splashScreen = splash.gameObject;
+            }
             ShowScreen(UIScreen.Splash);
-            StartCoroutine(SplashTimer());
+            var loading = splashScreen != null ? splashScreen.GetComponent<SplashScreenUI>() : null;
+            if (loading != null)
+            {
+                loading.enabled = true;
+                loading.BeginLoading();
+            }
+            else
+                StartCoroutine(SplashTimer());
         }
 
         private IEnumerator SplashTimer()
         {
-            yield return new WaitForSeconds(splashDuration);
+            yield return new WaitForSecondsRealtime(splashDuration);
 
             if (mainMenuScreen != null)
                 ShowScreen(UIScreen.MainMenu);
@@ -59,6 +71,11 @@ namespace Slidoo
         }
 
         // ── Screen switching ─────────────────────────────────────────────────
+
+        public void ShowLevelSelect(GameMode mode)
+        {
+            levelSelectScreen.GetComponent<LevelSelectUI>().ShowForMode(mode);
+        }
 
         public void ShowScreen(UIScreen screen)
         {
@@ -73,7 +90,12 @@ namespace Slidoo
 
         // ── Popup helpers ────────────────────────────────────────────────────
 
-        public void ShowWinPopup()        => SetActive(winPopup,            true);
+        public void ShowWinPopup(int stars, int moves, float time, bool newModeUnlocked)
+        {
+            SetActive(winPopup, true);
+            if (winPopup != null)
+                winPopup.GetComponent<WinPopupUI>().Populate(stars, moves, time, newModeUnlocked);
+        }
         public void ShowPausePopup()      => SetActive(pausePopup,          true);
         public void ShowSettingsPopup()   => SetActive(settingsPopup,       true);
         public void ShowControlSettings() => SetActive(controlSettingsPopup,true);

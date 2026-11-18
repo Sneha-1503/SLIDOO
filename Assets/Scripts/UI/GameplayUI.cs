@@ -78,7 +78,7 @@ namespace Slidoo
         }
 
         private void OnWin(int stars, int moves, float time, bool newMode) =>
-            UIManager.Instance.ShowWinPopup();
+            UIManager.Instance.ShowWinPopup(stars, moves, time, newMode);
     }
 
     // ─────────────────────────────────────────────────────────────────────────────
